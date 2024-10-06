@@ -1,6 +1,6 @@
 /**
-* Template Name: FlexStart
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+* Template Name: Baker
+* Template URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
 * Updated: Aug 07 2024 with Bootstrap v5.3.3
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
@@ -59,6 +59,16 @@
   });
 
   /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
+
+  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
@@ -93,24 +103,34 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
    * Initiate Pure Counter
    */
   new PureCounter();
 
   /**
-   * Frequently Asked Questions Toggle
+   * Init swiper sliders
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+  function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+      );
+
+      if (swiperElement.classList.contains("swiper-tab")) {
+        initSwiperWithCustomPagination(swiperElement, config);
+      } else {
+        new Swiper(swiperElement, config);
+      }
     });
+  }
+
+  window.addEventListener("load", initSwiper);
+
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
   });
 
   /**
@@ -147,23 +167,13 @@
   });
 
   /**
-   * Init swiper sliders
+   * Frequently Asked Questions Toggle
    */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
+  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+    faqItem.addEventListener('click', () => {
+      faqItem.parentNode.classList.toggle('faq-active');
     });
-  }
-
-  window.addEventListener("load", initSwiper);
+  });
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
