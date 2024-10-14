@@ -21,6 +21,11 @@
     <link href="{{ URL::asset('Admin/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('Admin/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
+    {{-- Datatable CSS --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Template Main CSS File -->
     <link href="{{ URL::asset('Admin/assets/css/style.css') }}" rel="stylesheet">
 </head>
@@ -45,6 +50,15 @@
 
     <!-- Template Main JS File -->
     <script src="{{ URL::asset('Admin/assets/js/main.js') }}"></script>
+
+    {{-- Datatable js --}}
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#bharatXTable').DataTable();
+        });
+    </script>
 </body>
 
 </html>

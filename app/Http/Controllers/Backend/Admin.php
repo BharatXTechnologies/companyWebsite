@@ -60,4 +60,30 @@ class Admin extends Controller
         $request->session()->forget('userEmail' );
         return redirect()->route('admin.login')->with('success', 'Logged out successfully.');
     }
+
+    public function ClientsList(){
+        $data['breadcrumbs'] = [];
+        $data['breadcrumbs'][] = [
+            'text' => 'Clients',
+            'url' => route('admin.clients')
+        ];
+        $data['title'] = "Clients List";
+        $data['clients'] = DB::table('clients')->get();
+        // return view('Backend.Pages.clients', $data);
+        return view('Backend.Pages.clients', $data);
+    }
+
+    public function addClient(){
+        $data['breadcrumbs'] = [];
+        $data['breadcrumbs'][] = [
+            'text' => 'Clients',
+            'url' => route('admin.clients')
+        ];
+        $data['breadcrumbs'][] = [
+            'text' => 'Add Client',
+            'url' => route('admin.addClient')
+        ];
+        $data['title'] = "Add Client";
+        return view('Backend.Pages.addClient', $data);
+    }
 }
