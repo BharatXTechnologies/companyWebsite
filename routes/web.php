@@ -15,5 +15,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', [Admin::class, 'adminDashboard'])->name('dashboard')->middleware('isAdminLogin');
     Route::get('/clients', [Admin::class, 'ClientsList'])->name('clients')->middleware('isAdminLogin');
     Route::get('/addClient', [Admin::class, 'addClient'])->name('addClient')->middleware('isAdminLogin');
+    Route::post('/storeClient', [Admin::class, 'storeClient'])->name('storeClient')->middleware('isAdminLogin');
+    Route::get('/toggleStatus/{id}', [Admin::class, 'toggleClientStatus'])->name('toggleStatus')->middleware('isAdminLogin');
+
+
+    Route::get('/profile', [Admin::class, 'profile'])->name('profile')->middleware('isAdminLogin');
 
 });

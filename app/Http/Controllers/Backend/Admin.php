@@ -86,4 +86,68 @@ class Admin extends Controller
         $data['title'] = "Add Client";
         return view('Backend.Pages.addClient', $data);
     }
+
+    public function storeClient(Request $request)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'business_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:clients,email',
+            'phone' => 'required|numeric|digits:10',
+            'city' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
+            'pin' => 'nullable|numeric',
+            'gst' => 'nullable|string|max:15',
+            'pan' => 'nullable|string|max:10',
+            'status' => 'required|boolean',
+            'address' => 'nullable|string',
+            'country' => 'nullable|string|max:255',
+        ]);
+
+        // Insert the validated data into the 'clients' table
+        DB::table('clients')->insert([
+            'contact_name' => $request->name,
+            'business_name' => $request->business_name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'city' => $request->city,
+            'state' => $request->state,
+            'country' => $request->country,
+            'pin' => $request->pin,
+            'gst_no' => $request->gst,
+            'pan_no' => $request->pan,
+            'status' => $request->status,
+        ]);
+
+        // Redirect back to the clients list with a success message
+        return redirect()->route('admin.clients')->with('success', 'Client added successfully.');
+    }
+
+    // toggle status of clients
+    public function toggleClientStatus($id)
+    {
+        $client = DB::table('clients')->where('id', $id)->first();
+
+        // Toggle the status
+        $client->status =!$client->status;
+
+        // Update the client status in the 'clients' table
+        DB::table('clients')->where('id', $id)->update(['status' => $client->status]);
+
+        // Redirect back to the clients list with a success message
+        return redirect()->route('admin.clients')->with('success', 'Client status updated successfully.');
+    }
+
+    // profile page
+    public function profile(){
+        $data['breadcrumbs'] = [];
+        $data['breadcrumbs'][] = [
+            'text' => 'Profile',
+            'url' => route('admin.profile')
+        ];
+        $data['title'] = "Profile";
+        return view('Backend.Pages.profile', $data);
+    }
 }

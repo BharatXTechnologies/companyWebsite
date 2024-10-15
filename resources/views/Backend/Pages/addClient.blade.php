@@ -4,6 +4,7 @@
 @endpush
 
 @section('content')
+    @include('Backend.Common.alert')
     <section class="section">
         <div class="row">
             <div class="col-sm-12">
@@ -37,7 +38,7 @@
                         <a href="{{ route('admin.clients') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="{{ route('admin.storeClient') }}" method="post">
                             @csrf
                             <div class="row mb-3">
                                 <div class="col-sm-6">
@@ -82,20 +83,24 @@
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <label for="pan" class="mb-2">Pan Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter Pan Number..." name="name"/>
+                                    <input type="text" class="form-control" placeholder="Enter Pan Number..." name="pan"/>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="status" class="mb-2">Status</label>
-                                    <select class="form-control" name="status">
+                                    <select class="form-control" name="status" required>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <label for="address">Address</label>
                                     <textarea class="form-control" placeholder="Enter Client Address..." name="address"></textarea>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="country">Country</label>
+                                    <input type="text" class="form-control" name="country" placeholder="Enter Country name..."/>
                                 </div>
                             </div>
                             <div class="row">

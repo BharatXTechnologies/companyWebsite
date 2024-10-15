@@ -4,6 +4,7 @@
 @endpush
 
 @section('content')
+    @include('Backend.Common.successMessagae')
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -35,15 +36,14 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
-                                <thead>
+                            <table class="table table-hover" id="bharatXTable">
+                                <thead style="border-top: 1px solid gray;">
                                     <tr>
                                         <th>#Sn</th>
                                         <th>Client Name</th>
                                         <th>Business Name</th>
                                         <th>Email</th>
                                         <th>Mobile Number</th>
-                                        <th>Address</th>
                                         <th>City</th>
                                         <th>State</th>
                                         <th>Country</th>
@@ -51,7 +51,8 @@
                                         <th>GST No</th>
                                         <th>Pan No</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,28 +64,29 @@
                                         @foreach ($clients as $key => $client)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>{{ $client->name }}</td>
+                                                <td>{{ $client->contact_name }}</td>
                                                 <td>{{ $client->business_name }}</td>
                                                 <td>{{ $client->email }}</td>
-                                                <td>{{ $client->mobile_number }}</td>
-                                                <td>{{ $client->address }}</td>
+                                                <td>{{ $client->phone }}</td>
                                                 <td>{{ $client->city }}</td>
                                                 <td>{{ $client->state }}</td>
                                                 <td>{{ $client->country }}</td>
-                                                <td>{{ $client->pin_no }}</td>
+                                                <td>{{ $client->pin }}</td>
                                                 <td>{{ $client->gst_no }}</td>
                                                 <td>{{ $client->pan_no }}</td>
                                                 <td>
                                                     @if($client->status == 1)
-                                                        <span class="badge badge-success">Active</span>
+                                                        <a href="{{ route('admin.toggleStatus', $client->id) }}" class="btn btn-success btn-sm">Active</a>
                                                     @else
-                                                        <span class="badge badge-danger">Inactive</span>
+                                                        <a href="{{ route('admin.toggleStatus', $client->id) }}" class="btn btn-danger btn-sm">Inactive</a>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     <a href="" class="btn btn-success btn-sm">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
+                                                </td>
+                                                <td>
                                                     <a href="" class="btn btn-danger btn-sm">
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
