@@ -50,6 +50,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ URL::asset('Admin/assets/js/main.js') }}"></script>
+    <script src="{{ URL::asset('Admin/assets/js/custom.js') }}"></script>
 
     {{-- Datatable js --}}
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

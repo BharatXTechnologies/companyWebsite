@@ -19,3 +19,30 @@ const showNotification = (type, message) => {
         notification.css('right', '-300px'); 
     }, 3000); 
 }
+
+// image preview
+
+document.getElementById('logo').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('imagePreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+
+// banner preview
+
+document.getElementById('banner').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('bannerPreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});

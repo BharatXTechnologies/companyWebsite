@@ -82,12 +82,12 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-success btn-sm">
+                                                    <a href="{{ route('admin.editClient', $client->id) }}" class="btn btn-success btn-sm">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-danger btn-sm">
+                                                    <a href="{{ route('admin.deleteClient', $client->id) }}" class="btn btn-danger btn-sm">
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
                                                 </td>
