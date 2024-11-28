@@ -13,6 +13,12 @@
                 <i class="bi bi-people"></i><span>Clients</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.projects' || Route::currentRouteName() == 'admin.addProject' ? 'active' : '' }}"
+                href="{{ route('admin.projects') }}">
+                <i class="bi bi-layout-text-sidebar"></i><span>Projects</span>
+            </a>
+        </li>
         <li class="nav-item {{ Route::currentRouteName() == 'admin.mediaSetting' ? 'active' : '' }}">
             <a class="nav-link {{ Route::currentRouteName() == 'admin.mediaSetting' ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#components-nav">
                 <i class="bi bi-sliders2"></i><span>Website Settings</span><i class="bi bi-chevron-down ms-auto"></i>

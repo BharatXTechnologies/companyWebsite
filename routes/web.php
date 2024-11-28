@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin;
+use App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Frontend\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // contact settings
     Route::get('/contactSetting', [Admin::class, 'contactSetting'])->name('contactSetting')->middleware('isAdminLogin');
     Route::post('/storeContactSetting', [Admin::class, 'storeContactSetting'])->name('storeContactSetting')->middleware('isAdminLogin');
+
+    // projects settings
+    Route::get('/projects', [Project::class, 'projectsList'])->name('projects')->middleware('isAdminLogin');
+    Route::get('/addProject', [Project::class, 'addProject'])->name('addProject')->middleware('isAdminLogin');
+    // Route::post('/storeProject', [Project::class,'storeProject'])->name('storeProject')->middleware('isAdminLogin');
+    // Route::get('/toggleProjectStatus/{id}', [Project::class, 'toggleProjectStatus'])->name('toggleProjectStatus')->middleware('isAdminLogin');
+    // Route::get('/deleteProject/{id}', [Project::class, 'deleteProject'])->name('deleteProject')->middleware('isAdminLogin');
+    // Route::get('/editProject/{id}', [Project::class, 'addProject'])->name('editProject')->middleware('isAdminLogin');
 
     // social media settings
     Route::get('/socialMediaSetting', [Admin::class,'socialMediaSetting'])->name('socialMediaSetting')->middleware('isAdminLogin');
