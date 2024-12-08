@@ -29,7 +29,7 @@
                 <div class="card">  
                     <div class="card-header mb-4 d-flex justify-content-between" style="background-color:  #7884f1; border-left: 5px solid #7884f1;">
                         <h5 class="mb-0 text-white">
-                            <i class="bi bi-people "></i>
+                            <i class="bi bi-layout-text-sidebar"></i>
                             <span>Projects Details</span>
                         </h5>
                         <a href="{{ route('admin.addProject') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Add project</a>

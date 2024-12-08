@@ -63,6 +63,14 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="technologies" class="mb-2">Technologies</label>
+                                        <input type="text" class="form-control" id="technologies" name="technologies" required value="{{ old('technologies') }}">
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin;
+use App\Http\Controllers\Backend\Clients;
 use App\Http\Controllers\Backend\Project;
+use App\Http\Controllers\Backend\Technology;
 use App\Http\Controllers\Frontend\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +16,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
     
     // admin dashboard
     Route::get('/dashboard', [Admin::class, 'adminDashboard'])->name('dashboard')->middleware('isAdminLogin');
-    Route::get('/clients', [Admin::class, 'ClientsList'])->name('clients')->middleware('isAdminLogin');
-    Route::get('/addClient', [Admin::class, 'addClient'])->name('addClient')->middleware('isAdminLogin');
-    Route::post('/storeClient', [Admin::class, 'storeClient'])->name('storeClient')->middleware('isAdminLogin');
-    Route::get('/toggleStatus/{id}', [Admin::class, 'toggleClientStatus'])->name('toggleStatus')->middleware('isAdminLogin');
-    Route::get('/deleteClient/{id}', [Admin::class, 'deleteClient'])->name('deleteClient')->middleware('isAdminLogin');
-    Route::get('/editClient/{id}', [Admin::class, 'addClient'])->name('editClient')->middleware('isAdminLogin');
-    Route::put('/updateClient/{id}', [Admin::class, 'storeClient'])->name('updateClient')->middleware('isAdminLogin');
+
+    
+    Route::get('/clients', [Clients::class, 'ClientsList'])->name('clients')->middleware('isAdminLogin');
+    Route::get('/addClient', [Clients::class, 'addClient'])->name('addClient')->middleware('isAdminLogin');
+    Route::post('/storeClient', [Clients::class, 'storeClient'])->name('storeClient')->middleware('isAdminLogin');
+    Route::get('/toggleStatus/{id}', [Clients::class, 'toggleClientStatus'])->name('toggleStatus')->middleware('isAdminLogin');
+    Route::get('/deleteClient/{id}', [Clients::class, 'deleteClient'])->name('deleteClient')->middleware('isAdminLogin');
+    Route::get('/editClient/{id}', [Clients::class, 'addClient'])->name('editClient')->middleware('isAdminLogin');
+    Route::put('/updateClient/{id}', [Clients::class, 'storeClient'])->name('updateClient')->middleware('isAdminLogin');
 
     // Website setting
     Route::get('/mediaSetting', [Admin::class, 'mediaSetting'])->name('mediaSetting')->middleware('isAdminLogin');
@@ -29,6 +33,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // contact settings
     Route::get('/contactSetting', [Admin::class, 'contactSetting'])->name('contactSetting')->middleware('isAdminLogin');
     Route::post('/storeContactSetting', [Admin::class, 'storeContactSetting'])->name('storeContactSetting')->middleware('isAdminLogin');
+
+
+// technology
+    Route::get('/technology', [Technology::class, 'index'])->name('technology')->middleware('isAdminLogin');
+    Route::get('/add-technology', [Technology::class, 'addTechnology'])->name('addTechnology')->middleware('isAdminLogin');
+
 
     // projects settings
     Route::get('/projects', [Project::class, 'projectsList'])->name('projects')->middleware('isAdminLogin');

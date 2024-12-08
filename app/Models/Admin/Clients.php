@@ -26,9 +26,9 @@ class Clients extends Model
 
     function getClientsData($id = null){
         if (is_null($id)) {
-            return Clients::where('status', 1)->get(); // Fetch all active clients
+            return Clients::get();
         } else {
-            return Clients::where('status', 1)->where('id', $id)->first(); // Fetch specific client
+            return Clients::where('id', $id)->first(); 
         }
     }
 }
