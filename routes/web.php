@@ -38,6 +38,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 // technology
     Route::get('/technology', [Technology::class, 'index'])->name('technology')->middleware('isAdminLogin');
     Route::get('/add-technology', [Technology::class, 'addTechnology'])->name('addTechnology')->middleware('isAdminLogin');
+    Route::post('/store-technology', [Technology::class, 'storeTechnology'])->name('storeTechnology')->middleware('isAdminLogin');
 
 
     // projects settings
