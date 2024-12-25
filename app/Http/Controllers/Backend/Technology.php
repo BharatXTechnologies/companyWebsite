@@ -25,32 +25,47 @@ class Technology extends Controller
         return view('Backend.Technologies.technologiesList', $data);
     }
 
-    public function addTechnology(){
-        $data['breadcrumbs'] = [];
-        $data['breadcrumbs'][] = [
-            'text' => 'Technologies',
-            'url' => route('admin.technology'),
+    public function addTechnology($tech_id = null){
+        $data = [
+            'breadcrumbs' => [
+                [
+                    'text' => 'Technologies',
+                    'url' => route('admin.technology'),
+                ]
+            ],
+            'title' => $tech_id ? "Edit Technology" : "Add Technology",
         ];
+        
         $data['breadcrumbs'][] = [
-            'text' => 'Add Technology',
-            'url' => route('admin.addTechnology'),
+            'text' => $tech_id ? 'Edit Technology' : 'Add Technology',
+            'url' => $tech_id ? route('admin.editTechnology', ['id' => $tech_id]) : route('admin.addTechnology'),
         ];
-        $data['title'] = "Add Technology";
+        
+        // Technology data for edit
+        if ($tech_id) {
+            $data['technologyData'] = $this->technologies->getTechnologies($tech_id);
+        
+            if (!$data['technologyData']) {
+                return redirect()->route('admin.technology')->with('error', 'Technology not found');
+            }
+        }
+        
         return view('Backend.Technologies.addTechnology', $data);
     }
 
     public function storeTechnology(Request $request){
         $validator = Validator::make($request->all(), [
-            'tech_name' => 'required|string|max:255',
-            'status' => 'required|in:1,0',
-            'description' => 'required|string',
+            'technology_name' => 'required|string|max:255',
+            'technology_status' => 'required|in:1,0',
+            'technology_description' => 'required|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 
         if($validator->fails()){
+            dd('hello');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        // dd('hell');
         $data = $request->except('logo');
 
         $uploadPath = public_path('assets/uploads/technologies');

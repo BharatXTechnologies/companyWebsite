@@ -93,7 +93,7 @@
                 </div>
             @endif
         </h5>
-        <img src="{{ URL::asset('assets/img/Logo/mainLogo.png') }}" alt="BharatX Technologies">
+        <img src="{{ URL::asset('assets/img/Logo/new_logo.png') }}" alt="Zer00neinfinity Solutions">
         <form action="{{ route('admin.loginProccess') }}" method="post">
             @csrf
             <input type="text" name="email" placeholder="Username or Email Address" required>

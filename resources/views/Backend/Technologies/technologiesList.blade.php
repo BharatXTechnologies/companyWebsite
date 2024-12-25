@@ -36,7 +36,9 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $technology->technology_name }}</td>
-                                            <td>{{ $technology->technology_icon }}</td>
+                                            <td>
+                                                <img src="{{ URL::asset('assets/uploads/technologies/' . $technology->technology_icon) }}" alt="{{ $technology->technology_icon }}" style="width: 50px; border-radius: 50%;"/>
+                                            </td>
                                             <td>{{ $technology->technology_description }}</td>
                                             <td>
                                                 @if($technology->technology_status == 1)
@@ -46,7 +48,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.editClient', $technology->id) }}" class="btn btn-success btn-sm">
+                                                <a href="{{ route('admin.editTechnology', $technology->id) }}" class="btn btn-success btn-sm">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
                                             </td>
