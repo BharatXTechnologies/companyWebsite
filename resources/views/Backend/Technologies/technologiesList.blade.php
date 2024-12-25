@@ -53,7 +53,7 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.deleteClient', $technology->id) }}" class="btn btn-danger btn-sm">
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm delete-btn" data-url="{{ route('admin.deleteClient', $technology->id) }}">
                                                     <i class="bi bi-trash3"></i>
                                                 </a>
                                             </td>

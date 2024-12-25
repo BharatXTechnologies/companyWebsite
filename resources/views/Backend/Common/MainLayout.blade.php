@@ -61,6 +61,10 @@
     
     <!-- Summernote JS -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+
+    {{-- sweet alert js --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ URL::asset('Admin/assets/js/sweetAlert.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#editor').summernote({
