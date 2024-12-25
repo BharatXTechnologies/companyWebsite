@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="{{ URL::asset('assets/img/Logo/logo.png') }}" alt="">
-            <span class="d-none d-lg-block">BharatX</span>
+            <span class="d-none d-lg-block">ZeroOneInfinity</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>

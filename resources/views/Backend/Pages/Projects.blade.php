@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Projects - BharatX Technologies.
+    Projects - ZeroOneInfinity.
 @endpush
 
 @section('content')
@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="bharatXProjects">
+                            <table class="table table-hover" id="ZeroOneInfinityProjects">
                                 <thead style="border-top: 1px solid gray;">
                                     <tr>
                                         <th>#Sn</th>
@@ -79,7 +79,7 @@
     </section>
     <script>
         $(document).ready(function() {
-            $('#bharatXProjects').DataTable();
+            $('#ZeroOneInfinityProjects').DataTable();
         });
     </script>
 @endsection

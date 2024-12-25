@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta name="author" content="BharatX Technologies">
+    <meta name="author" content="ZeroOneInfinity">
     <title>@stack('setTitle')</title>
     <link href="{{ URL::asset('assets/img/Logo/logo.png') }}" rel="icon">
 

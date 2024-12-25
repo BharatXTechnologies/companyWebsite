@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Clients - BharatX Technologies.
+    Clients - ZeroOneInfinity.
 @endpush
 
 @section('content')
@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="bharatXTable">
+                            <table class="table table-hover" id="ZeroOneInfinityTable">
                                 <thead style="border-top: 1px solid gray;">
                                     <tr>
                                         <th>#Sn</th>
@@ -87,7 +87,7 @@
     </section>
     <script>
         $(document).ready(function() {
-            $('#bharatXTable').DataTable();
+            $('#ZeroOneInfinityTable').DataTable();
         });
     </script>
 @endsection

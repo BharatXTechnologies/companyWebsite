@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Dashboard - BharatX Technologies.
+    Dashboard - ZeroOneInfinity.
 @endpush
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Add client - BharatX Technologies
+    Add client - ZeroOneInfinity
 @endpush
 
 @section('content')

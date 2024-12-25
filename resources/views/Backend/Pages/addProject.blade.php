@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Projects - BharatX Technologies.
+    Projects - ZeroOneInfinity.
 @endpush
 
 @section('content')

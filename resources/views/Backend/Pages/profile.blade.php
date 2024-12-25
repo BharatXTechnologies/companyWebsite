@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Profile - BharatX Technologies
+    Profile - ZeroOneInfinity
 @endpush
 
 @section('content')

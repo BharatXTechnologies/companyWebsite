@@ -1,7 +1,7 @@
 @extends('Frontend.Common.Mainlayout')
 
 @push('setTitle')
-    BharatX Technologies - A software development company
+    ZeroOneInfinity - A software development company
 @endpush
 
 @section('content')
@@ -40,12 +40,12 @@
         <div class="container">
             <div class="row gy-3">
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/about.jpg" alt="About BharatX Technologies" class="img-fluid">
+                    <img src="assets/img/about.jpg" alt="About ZeroOneInfinity" class="img-fluid">
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="about-content ps-0 ps-lg-3">
                         <h3>Empowering Digital Transformation Through Innovation</h3>
-                        <p class="fst-italic">At BharatX Technologies, we blend creativity with technology to provide
+                        <p class="fst-italic">At ZeroOneInfinity, we blend creativity with technology to provide
                             tailored solutions that drive success.</p>
                         <ul>
                             <li>
@@ -129,7 +129,7 @@
                         <a href="service-details.html" class="stretched-link">
                             <h3>Web Development</h3>
                         </a>
-                        <p style="text-align: justify;">At BharatX Technologies, we build responsive, fast, and engaging
+                        <p style="text-align: justify;">At ZeroOneInfinity, we build responsive, fast, and engaging
                             websites tailored to your business needs. From concept to launch, we ensure that your online
                             presence stands out, offering intuitive user experiences and cutting-edge designs. Whether it’s
                             an e-commerce platform or a personal portfolio, our web solutions drive results and leave
@@ -170,7 +170,7 @@
                         <a href="service-details.html" class="stretched-link">
                             <h3>Software Development</h3>
                         </a>
-                        <p>From complex enterprise solutions to user-friendly software tools, BharatX Technologies is your
+                        <p>From complex enterprise solutions to user-friendly software tools, ZeroOneInfinity is your
                             partner in custom software development. We leverage the latest technologies to develop software
                             that enhances productivity, streamlines processes, and integrates seamlessly with your
                             operations, all while staying flexible for future growth..</p>
@@ -190,7 +190,7 @@
                         <a href="service-details.html" class="stretched-link">
                             <h3>Graphic Design</h3>
                         </a>
-                        <p>At BharatX Technologies, we bring your brand’s vision to life with stunning graphic design.
+                        <p>At ZeroOneInfinity, we bring your brand’s vision to life with stunning graphic design.
                             Whether you need logos, marketing materials, or visual content for social media, our creative
                             team delivers designs that captivate and communicate your message effectively. Let your brand
                             stand out with eye-catching graphics that leave a lasting impact.</p>
@@ -530,7 +530,7 @@
     <section id="team" class="team section">
         <div class="container section-title" data-aos="fade-up">
             <h2>Team</h2>
-            <p>Our talented team members work with BharatX Technologies.</p>
+            <p>Our talented team members work with ZeroOneInfinity.</p>
         </div>
         <div class="container">
 
@@ -597,7 +597,7 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Contact</h2>
-            <p>Get in touch with BharatX Technologies for customized web, app, and software solutions tailored to your
+            <p>Get in touch with ZeroOneInfinity for customized web, app, and software solutions tailored to your
                 business needs.</p>
         </div><!-- End Section Title -->
 
