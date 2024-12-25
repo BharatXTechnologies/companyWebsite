@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-    @include('Backend.Common.successMessagae')
     <section class="section">
         @include('Backend.Common.breadcrumb')
         <div class="row">
@@ -37,7 +36,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (count($projectsData))
+                                    @if (count($projectsData) > 0)
                                         @foreach ($projectsData as $key => $project)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
@@ -62,7 +61,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.deleteProject', $project->id) }}" class="btn btn-danger btn-sm">
+                                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm delete-btn" data-url="{{ route('admin.deleteProject', $project->id) }}">
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
                                                 </td>

@@ -87,4 +87,20 @@ class Technology extends Controller
             return redirect()->back()->with('error', 'Something went wrong. Please try again.')->withInput();
         }
     }
+
+    // soft delete item
+    public function deleteTechnology($id){
+        if(is_null($id)) {
+            return redirect()->route('admin.technology')->with('error', 'Technology ID does not exist.');
+        }
+        $technology = $this->technologies->getTechnologiesData($id);
+        if(empty($technology)){
+            return redirect()->route('admin.technology')->with('error', 'Technology not found.');
+        }
+        if($technology->delete()){
+            return redirect()->route('admin.technology')->with('success', 'Technology deleted successfully.');
+        } else{
+            return redirect()->route('admin.technology')->with('error', 'Failed to delete technology.');
+        }
+    }
 }

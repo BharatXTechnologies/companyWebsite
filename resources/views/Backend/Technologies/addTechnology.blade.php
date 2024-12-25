@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-    @include('Backend.Common.successMessagae')
     <section class="section">
         @include('Backend.Common.breadcrumb')
         <div class="col-sm-12">

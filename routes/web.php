@@ -39,8 +39,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/technology', [Technology::class, 'index'])->name('technology')->middleware('isAdminLogin');
     Route::get('/add-technology', [Technology::class, 'addTechnology'])->name('addTechnology')->middleware('isAdminLogin');
     Route::post('/store-technology', [Technology::class, 'storeTechnology'])->name('storeTechnology')->middleware('isAdminLogin');
-    Route::get('/edit-technology/{id}', [Technology::class, 'addTechnology'])->name('editTechnology')->middleware('isAdminLogin');
-
+    Route::get('/edit-technology/{id}', [Technology::class, 'addTechnology'])->name('editTechnology')->middleware('isAdminLogin'); //pending
+    Route::get('/delete-technology/{id}', [Technology::class, 'deleteTechnology'])->name('deleteTechnology')->middleware('isAdminLogin');
 
     // projects settings
     Route::get('/projects', [Project::class, 'projectsList'])->name('projects')->middleware('isAdminLogin');

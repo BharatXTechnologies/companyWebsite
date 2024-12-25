@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-    @include('Backend.Common.successMessagae')
     <section class="section">
         @include('Backend.Common.breadcrumb')
         <div class="row">
@@ -39,11 +38,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if ($clients->isEmpty())
-                                        <tr class="text-center">
-                                            <td colspan="14">There are currently no clients in the database.</td>
-                                        </tr>
-                                    @else
+                                    @if (!$clients->isEmpty())
                                         @foreach ($clients as $key => $client)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
@@ -70,7 +65,8 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.deleteClient', $client->id) }}" class="btn btn-danger btn-sm">
+                                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm delete-btn" data-url="{{ route('admin.deleteClient', $client->id) }}">
+
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
                                                 </td>

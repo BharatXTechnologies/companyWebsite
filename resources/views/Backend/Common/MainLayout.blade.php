@@ -40,6 +40,7 @@
     @include('Backend.Common.header')
     @include('Backend.Common.sidebar')
     <main id="main" class="main">
+        @include('Backend.Common.successMessagae')
         @yield('content')
     </main>
 

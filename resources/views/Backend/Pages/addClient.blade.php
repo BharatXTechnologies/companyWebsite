@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-    @include('Backend.Common.alert')
     <section class="section">
         @include('Backend.Common.breadcrumb')
         <div class="row">

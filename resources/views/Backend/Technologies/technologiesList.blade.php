@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-    @include('Backend.Common.successMessagae')
     <section class="section">
         @include('Backend.Common.breadcrumb')
         <div class="col-sm-12">
@@ -41,11 +40,10 @@
                                             </td>
                                             <td>{{ $technology->technology_description }}</td>
                                             <td>
-                                                @if($technology->technology_status == 1)
-                                                    <a href="{{ route('admin.toggleStatus', $technology->id) }}" class="btn btn-success btn-sm">Active</a>
-                                                @else
-                                                    <a href="{{ route('admin.toggleStatus', $technology->id) }}" class="btn btn-danger btn-sm">Inactive</a>
-                                                @endif
+                                                <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $technology->technology_status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.toggleStatus', $technology->id) }}">
+                                                {{ $technology->technology_status == 1 ? 'Active' : 'Inactive' }}
+                                             </a>
+                                             
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.editTechnology', $technology->id) }}" class="btn btn-success btn-sm">
@@ -53,7 +51,7 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm delete-btn" data-url="{{ route('admin.deleteClient', $technology->id) }}">
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm trash-btn" data-url="{{ route('admin.deleteTechnology', $technology->id) }}">
                                                     <i class="bi bi-trash3"></i>
                                                 </a>
                                             </td>
