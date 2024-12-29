@@ -4,12 +4,19 @@ use App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Backend\Clients;
 use App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Backend\Technology;
+use App\Http\Controllers\Backend\TrashedController;
 use App\Http\Controllers\Frontend\Home;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Home::class,'index'])->name('index');
 
 Route::prefix('admin')->name('admin.')->group(function(){
+
+    // common routes
+    Route::get('/{module}/trashed', [TrashedController::class, 'getTrashedData'])->name('trashed')->middleware('isAdminLogin');
+
+
+
     Route::get('/login', [Admin::class, 'AdminLogin'])->name('login')->middleware('isAdminLogout');
     Route::post('/loginProccess', [Admin::class, 'AdminLoginProccess'])->name('loginProccess')->middleware('isAdminLogout');
     Route::get('/logout', [Admin::class, 'logoutAdmin'])->name('logout');
@@ -36,7 +43,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
 // technology
-    Route::get('/technology', [Technology::class, 'index'])->name('technology')->middleware('isAdminLogin');
+    Route::get('/technology', [Technology::class, 'index'])->name('technologies')->middleware('isAdminLogin');
     Route::get('/add-technology', [Technology::class, 'addTechnology'])->name('addTechnology')->middleware('isAdminLogin');
     Route::post('/store-technology', [Technology::class, 'storeTechnology'])->name('storeTechnology')->middleware('isAdminLogin');
     Route::get('/edit-technology/{id}', [Technology::class, 'addTechnology'])->name('editTechnology')->middleware('isAdminLogin'); //pending

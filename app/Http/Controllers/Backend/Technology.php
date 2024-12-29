@@ -18,7 +18,7 @@ class Technology extends Controller
         $data['breadcrumbs'] = [];
         $data['breadcrumbs'][] = [
             'text' => 'Technologies',
-            'url' => route('admin.technology'),
+            'url' => route('admin.technologies'),
         ];
         $data['title'] = "Technologies List";
         $data['technologiesData'] = $this->technologies->getTechnologies();
@@ -30,7 +30,7 @@ class Technology extends Controller
             'breadcrumbs' => [
                 [
                     'text' => 'Technologies',
-                    'url' => route('admin.technology'),
+                    'url' => route('admin.technologies'),
                 ]
             ],
             'title' => $tech_id ? "Edit Technology" : "Add Technology",
@@ -46,7 +46,7 @@ class Technology extends Controller
             $data['technologyData'] = $this->technologies->getTechnologies($tech_id);
         
             if (!$data['technologyData']) {
-                return redirect()->route('admin.technology')->with('error', 'Technology not found');
+                return redirect()->route('admin.technologies')->with('error', 'Technology not found');
             }
         }
         
@@ -58,11 +58,10 @@ class Technology extends Controller
             'technology_name' => 'required|string|max:255',
             'technology_status' => 'required|in:1,0',
             'technology_description' => 'required|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,svg',
         ]);
 
         if($validator->fails()){
-            dd('hello');
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // dd('hell');
@@ -82,25 +81,45 @@ class Technology extends Controller
         }
 
         if($this->technologies::create($data)){
-            return redirect()->route('admin.technology')->with('success', 'Technology added successfully.');
+            return redirect()->route('admin.technologies')->with('success', 'Technology added successfully.');
         }else{
             return redirect()->back()->with('error', 'Something went wrong. Please try again.')->withInput();
         }
     }
 
     // soft delete item
-    public function deleteTechnology($id){
-        if(is_null($id)) {
-            return redirect()->route('admin.technology')->with('error', 'Technology ID does not exist.');
+    public function deleteTechnology($id)
+    {
+        if (is_null($id)) {
+            return redirect()->route('admin.technologies')->with('error', 'Technology ID does not exist.');
         }
-        $technology = $this->technologies->getTechnologiesData($id);
-        if(empty($technology)){
-            return redirect()->route('admin.technology')->with('error', 'Technology not found.');
+    
+        $technology = $this->technologies->find($id);
+    
+        if (empty($technology)) {
+            return redirect()->route('admin.technologies')->with('error', 'Technology not found.');
         }
-        if($technology->delete()){
-            return redirect()->route('admin.technology')->with('success', 'Technology deleted successfully.');
-        } else{
-            return redirect()->route('admin.technology')->with('error', 'Failed to delete technology.');
+    
+        if ($technology->delete()) { 
+            return redirect()->route('admin.technologies')->with('success', 'Technology deleted successfully.');
+        } else {
+            return redirect()->route('admin.technologies')->with('error', 'Failed to delete technology.');
         }
+    }
+
+    // get temporary deleted data
+    public function getTrashedData(){
+        $data['breadcrumbs'] = [];
+        $data['breadcrumbs'][] = [
+            'text' => 'Technologies',
+            'url' => route('admin.technologies'),
+        ];
+        $data['breadcrumbs'][] = [
+            'text' => 'Trashed Technologies',
+            'url' => route('admin.trshed'),
+        ];
+        $data['title'] = "Trashed Technologies List";
+        $data['technologiesData'] = $this->technologies->onlyTrashed()->get();
+        return view('Backend.Technologies.trashTechnologiesList', $data);
     }
 }

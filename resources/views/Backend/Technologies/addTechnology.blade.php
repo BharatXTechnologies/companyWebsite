@@ -13,7 +13,7 @@
                         <i class="bi bi-motherboard"></i>
                         <span>{{ $title }}</span>
                     </h5>
-                    <a href="{{ route('admin.technology') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Cancel</a>
+                    <a href="{{ route('admin.technologies') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Cancel</a>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.storeTechnology') }}" method="post" enctype="multipart/form-data">

@@ -20,8 +20,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() == 'admin.technology' || Route::currentRouteName() == 'admin.add-technology' ? 'active' : '' }}"
-                href="{{ route('admin.technology') }}">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.technologies' || Route::currentRouteName() == 'admin.trashed' || Route::currentRouteName() == 'admin.addTechnology' ? 'active' : '' }}"
+                href="{{ route('admin.technologies') }}">
                 <i class="bi bi-motherboard"></i><span>Technologies</span>
             </a>
         </li>
