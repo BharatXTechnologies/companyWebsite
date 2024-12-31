@@ -30,9 +30,9 @@ class ModelHelper
                 self::scanDirectory($fullPath, $moduleModels);
             } elseif (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
                 // If it's a PHP file, assume it's a model
-                $relativePath = str_replace(app_path(), '', $fullPath); // app_path() will return base 'app' folder path
-                $relativePath = ltrim($relativePath, DIRECTORY_SEPARATOR); // Remove leading slash if any
-                $className = str_replace(DIRECTORY_SEPARATOR, '\\', $relativePath); // Replace directory separator with backslash
+                $relativePath = str_replace(app_path(), '', $fullPath); 
+                $relativePath = ltrim($relativePath, DIRECTORY_SEPARATOR);
+                $className = str_replace(DIRECTORY_SEPARATOR, '\\', $relativePath);
                 $className = 'App\\' . str_replace('.php', '', $className);
                 if (class_exists($className)) {
                     // Get table name dynamically

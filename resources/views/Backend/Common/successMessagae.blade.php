@@ -8,7 +8,7 @@
         $(document).ready(function() {
             $('#successSms').css('right', '20px');
             setTimeout(function() {
-                $('#successSms').css('right', '-300px');
+                $('#successSms').css('right', '-400px');
             }, 3000);
         });
     </script>
@@ -32,7 +32,7 @@
 
             // Set a timeout to slide the message out after 3 seconds
             setTimeout(function() {
-                $('#errorSms').css('right', '-300px');
+                $('#errorSms').css('right', '-400px');
             }, 3000);
         });
     </script>

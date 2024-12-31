@@ -36,7 +36,10 @@
                         <i class="bi bi-trash text-danger"></i>
                         <span>{{ $title }}</span>
                     </h5>
-                    <a href="{{ route('admin.technologies') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Cancel</a>
+                    <p class="p-0 m-0">
+                        <a href="javascript:void(0);" class="btn btn-outline-light btn-sm restore-all-btn" data-url="{{ route('admin.restoreAll', ['module' => $module]) }}" style="font-weight: bold;">Restore All</a>
+                        <a href="{{ route('admin.technologies') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Cancel</a>
+                    </p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -44,39 +47,31 @@
                             <thead style="border-top: 1px solid gray;">
                                 <tr>
                                     <th>#Sn</th>
-                                    <th>Technology Name</th>
-                                    <th>Technology Icon</th>
-                                    <th>Technology Description</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
+                                    @foreach($columns as $column)
+                                        <th>{{ ucfirst(str_replace('_', ' ', $column)) }}</th>
+                                    @endforeach
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if (!$trashedData->isEmpty())
-                                    @foreach ($trashedData as $key => $technology)
+                                    @php
+                                        $sn = 1;
+                                    @endphp
+                                    @foreach($trashedData as $data)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ $technology->technology_name }}</td>
+                                            <td> {{ $sn++ }} </td>
+                                            @foreach($columns as $column)
+                                                <td>{{ $data->$column ?? 'N/A' }}</td>
+                                            @endforeach
                                             <td>
-                                                <img src="{{ URL::asset('assets/uploads/technologies/' . $technology->technology_icon) }}" alt="{{ $technology->technology_icon }}" style="width: 50px; border-radius: 50%;"/>
-                                            </td>
-                                            <td>{{ $technology->technology_description }}</td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $technology->technology_status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.toggleStatus', $technology->id) }}">
-                                                    {{ $technology->technology_status == 1 ? 'Active' : 'Inactive' }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('admin.editTechnology', $technology->id) }}" class="btn btn-success btn-sm">
-                                                    <i class="bi bi-pencil-square"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm trash-btn" data-url="{{ route('admin.deleteTechnology', $technology->id) }}">
+                                                <!-- Delete Button -->
+                                                <a href="javascript:void(0);" 
+                                                   class="btn btn-danger btn-sm p-delete-btn" 
+                                                   data-url="{{ route('admin.deleteRecord', ['module' => $module, 'id' => $data->id]) }}">
                                                     <i class="bi bi-trash3"></i>
                                                 </a>
-                                            </td>
+                                            </td>                            
                                         </tr>
                                     @endforeach
                                 @endif
@@ -91,5 +86,32 @@
         $(document).ready(function() {
             $('#ZeroOneInfinityTable').DataTable();
         });
+        
     </script>
+    {{-- <script>
+        document.querySelector('.restore-all-btn').addEventListener('click', function () {
+            const url = this.getAttribute('data-url');
+            if (confirm('Are you sure you want to restore all records?')) {
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        location.reload();
+                    } else {
+                        alert('An error occurred while restoring records.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+            }
+        });
+    </script> --}}
 @endsection

@@ -14,7 +14,7 @@
                         <span>{{ $title }}</span>
                     </h5>
                     <p class="p-0 m-0">
-                        <a href="{{ route('admin.trashed', ['module' => 'technologies']) }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Trash</a>
+                        <a href="{{ route('admin.trashed', ['module' => 'technologies']) }}" class="btn btn-outline-light btn-sm restore-all-btn" style="font-weight: bold;">Trash</a>
                         <a href="{{ route('admin.addTechnology') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Add Technology</a>
                     </p>
                 </div>

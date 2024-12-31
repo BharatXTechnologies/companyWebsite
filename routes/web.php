@@ -14,6 +14,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // common routes
     Route::get('/{module}/trashed', [TrashedController::class, 'getTrashedData'])->name('trashed')->middleware('isAdminLogin');
+    Route::get('/{module}/{id}/delete', [TrashedController::class, 'deleteRecord'])->name('deleteRecord')->middleware('isAdminLogin');
+    Route::get('/{module}/restore-all', [TrashedController::class, 'restoreAll'])->name('restoreAll')->middleware('isAdminLogin');
+
+
 
 
 
