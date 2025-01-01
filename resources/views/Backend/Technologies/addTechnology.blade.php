@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Technologies - ZeroOneInfinity.
+    {{ $title }} - ZeroOneInfinity.
 @endpush
 
 @section('content')
@@ -16,33 +16,32 @@
                     <a href="{{ route('admin.technologies') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Cancel</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.storeTechnology') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ $technologyData ? route('admin.updateTechnology', $technologyData->id) : route('admin.storeTechnology') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-sm-6 mb-2">
                                 <label for="technology_name" class="mb-2">Technology Name</label>
-                                <input type="text" class="form-control" id="technology_name" name="technology_name" required value="{{ old('technology_name') }}">
+                                <input type="text" class="form-control" id="technology_name" name="technology_name" required value="{{ old('technology_name', $technologyData->technology_name ?? '') }}">
                             </div>
                             <div class="col-sm-6 mb-2">
                                 <label for="status" class="mb-2">Status</label>
                                 <select class="form-control" name="technology_status" required>
-                                    <option value="1" {{ old('technology_status', '1') == '1'?'selected' : '' }}>Active</option>
-                                    <option value="0" {{ old('technology_status', '0') == '0'?'selected' : '' }}>Inactive</option>
+                                    <option value="1" {{ old('technology_status', $technologyData->technology_status ?? '') == '1'?'selected' : '' }}>Active</option>
+                                    <option value="0" {{ old('technology_status', $technologyData->technology_status ?? '') == '0'?'selected' : '' }}>Inactive</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-12">
                                 <label for="technology_description" class="mb-2">Description</label>
-                                <textarea class="form-control" id="editor" name="technology_description" rows="5" required>{{ old('technology_description') }}</textarea>
+                                <textarea class="form-control" id="editor" name="technology_description" rows="5" required>{{ old('technology_description', $technologyData->technology_description ?? '') }}</textarea>
                             </div>
                         </div>
                         <div class="row mb-5">
                             <div class="col-sm-2">
                                 <label for="logo" class="mb-2">Technology Icon</label>
                                 <div class="image-preview-container">
-                                    <img id="imagePreview" src="https://via.placeholder.com/150" alt="Image Preview"
-                                        class="image-preview">
+                                    <img id="imagePreview" src="{{ isset($technologyData) && $technologyData->technology_icon ? asset('assets/uploads/technologies/' . $technologyData->technology_icon) : 'https://via.placeholder.com/150' }}" alt="Image Preview" class="image-preview">
                                     <label for="logo" class="upload-icon">
                                         <i class="bi bi-camera"></i>
                                     </label>

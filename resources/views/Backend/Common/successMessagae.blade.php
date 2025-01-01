@@ -1,14 +1,30 @@
 @if (session('success'))
     <div id="successSms"
         style="position: fixed; top: 100px; right: -300px; padding: 10px; background-color: #4caf50; color: white; border-radius: 5px; z-index: 1000; transition: right 0.5s ease;">
-        <span id="successNessage">{{ session('success') }}</span>
+        <span id="successMessage">{{ session('success') }}</span>
     </div>
 
     <script>
         $(document).ready(function() {
             $('#successSms').css('right', '20px');
             setTimeout(function() {
-                $('#successSms').css('right', '-400px');
+                $('#successSms').css('right', '-500px');
+            }, 3000);
+        });
+    </script>
+@endif
+
+@if (session('error'))
+    <div id="errorSms"
+        style="position: fixed; top: 100px; right: -300px; padding: 10px; background-color: #d61b1b; color: white; border-radius: 5px; z-index: 1000; transition: right 0.5s ease;">
+        <span id="errorMessage">{{ session('error') }}</span>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#errorSms').css('right', '20px');
+            setTimeout(function() {
+                $('#errorSms').css('right', '-500px');
             }, 3000);
         });
     </script>
@@ -32,7 +48,7 @@
 
             // Set a timeout to slide the message out after 3 seconds
             setTimeout(function() {
-                $('#errorSms').css('right', '-400px');
+                $('#errorSms').css('right', '-500px');
             }, 3000);
         });
     </script>

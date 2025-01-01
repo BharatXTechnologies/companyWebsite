@@ -14,7 +14,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // common routes
     Route::get('/{module}/trashed', [TrashedController::class, 'getTrashedData'])->name('trashed')->middleware('isAdminLogin');
-    Route::get('/{module}/{id}/delete', [TrashedController::class, 'deleteRecord'])->name('deleteRecord')->middleware('isAdminLogin');
+    Route::get('/{module}/{id}/delete', [TrashedController::class, 'permanentDelete'])->name('deleteRecord')->middleware('isAdminLogin');
     Route::get('/{module}/restore-all', [TrashedController::class, 'restoreAll'])->name('restoreAll')->middleware('isAdminLogin');
 
 
@@ -46,11 +46,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::post('/storeContactSetting', [Admin::class, 'storeContactSetting'])->name('storeContactSetting')->middleware('isAdminLogin');
 
 
-// technology
+    // technology
     Route::get('/technology', [Technology::class, 'index'])->name('technologies')->middleware('isAdminLogin');
     Route::get('/add-technology', [Technology::class, 'addTechnology'])->name('addTechnology')->middleware('isAdminLogin');
     Route::post('/store-technology', [Technology::class, 'storeTechnology'])->name('storeTechnology')->middleware('isAdminLogin');
-    Route::get('/edit-technology/{id}', [Technology::class, 'addTechnology'])->name('editTechnology')->middleware('isAdminLogin'); //pending
+    Route::get('/toggle-technology-status/{id}', [Technology::class, 'toggleTechnologyStatus'])->name('toggleTechnologyStatus')->middleware('isAdminLogin');
+    Route::get('/edit-technology/{id}', [Technology::class, 'addTechnology'])->name('editTechnology')->middleware('isAdminLogin');
+    Route::post('/update-technology/{id}', [Technology::class, 'storeTechnology'])->name('updateTechnology')->middleware('isAdminLogin');
     Route::get('/delete-technology/{id}', [Technology::class, 'deleteTechnology'])->name('deleteTechnology')->middleware('isAdminLogin');
 
     // projects settings

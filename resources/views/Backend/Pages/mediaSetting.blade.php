@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Website Setting - Media Settings
+    {{ $title }} - Media Settings
 @endpush
 
 @section('content')

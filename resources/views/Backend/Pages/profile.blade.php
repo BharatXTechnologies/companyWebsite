@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Profile - ZeroOneInfinity
+    {{ $title }} - ZeroOneInfinity
 @endpush
 
 @section('content')

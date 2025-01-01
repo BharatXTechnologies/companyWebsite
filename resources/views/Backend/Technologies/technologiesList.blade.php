@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Clients - ZeroOneInfinity.
+    {{ $title }} - ZeroOneInfinity.
 @endpush
 
 @section('content')
@@ -14,7 +14,7 @@
                         <span>{{ $title }}</span>
                     </h5>
                     <p class="p-0 m-0">
-                        <a href="{{ route('admin.trashed', ['module' => 'technologies']) }}" class="btn btn-outline-light btn-sm restore-all-btn" style="font-weight: bold;">Trash</a>
+                        <a href="{{ route('admin.trashed', ['module' => 'technologies']) }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Trash</a>
                         <a href="{{ route('admin.addTechnology') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Add Technology</a>
                     </p>
                 </div>
@@ -43,7 +43,7 @@
                                             </td>
                                             <td>{{ $technology->technology_description }}</td>
                                             <td>
-                                                <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $technology->technology_status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.toggleStatus', $technology->id) }}">
+                                                <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $technology->technology_status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.toggleTechnologyStatus', $technology->id) }}">
                                                 {{ $technology->technology_status == 1 ? 'Active' : 'Inactive' }}
                                              </a>
                                              

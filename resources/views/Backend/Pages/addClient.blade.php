@@ -1,6 +1,6 @@
 @extends('Backend.Common.MainLayout')
 @push('setTitle')
-    Add client - ZeroOneInfinity
+    {{ $title }} - ZeroOneInfinity
 @endpush
 
 @section('content')
