@@ -44,7 +44,16 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="technologies" class="mb-2">Technologies</label>
-                                        <input type="text" class="form-control" id="technologies" name="technologies" required value="{{ old('technologies') }}">
+                                        <select class="form-control" name="technologies">
+                                            <option hidden>Select Technologies</option>
+                                            @if (!empty($technologiesData))
+                                                @foreach ($technologiesData as $technologies)
+                                                    <option value="{{ $technologies->id }}">{{ $technologies->technology_name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option>No Technologies</option>
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
                             </div>

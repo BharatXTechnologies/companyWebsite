@@ -23,8 +23,7 @@ class Clients extends Controller
         ];
         $data['title'] = "Clients List";
         $data['clients'] = $this->clients->getClientsData();
-        // return view('Backend.Pages.clients', $data);
-        return view('Backend.Pages.clients', $data);
+        return view('Backend.Clients.clients', $data);
     }
 
     public function addClient($clientId = null)
@@ -45,14 +44,14 @@ class Clients extends Controller
             if(empty($clientData)){
                 return redirect()->route('admin.clients')->with('error', 'Client not found.');
             }
-            return view('Backend.Pages.addClient', $data, compact('clientData'));
+            return view('Backend.Clients.addClient', $data, compact('clientData'));
         }
         $data['breadcrumbs'][] = [
             'text' => 'Add Client',
             'url' => route('admin.addClient')
         ];
         $data['title'] = "Add Client";
-        return view('Backend.Pages.addClient', $data, compact('clientData'));
+        return view('Backend.Clients.addClient', $data, compact('clientData'));
     }
 
     public function storeClient(Request $request, $clientId = null){

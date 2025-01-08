@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Clients;
+use App\Models\Admin\Technologies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,11 +19,12 @@ class Project extends Controller
         $data['title'] = "Projects List";
         $data['projectsData'] = DB::table('projects')->get();
 
-        return view('Backend.Pages.Projects', $data);
+        return view('Backend.Projects.Projects', $data);
     }
 
     public function addProject(){
         $clients = new Clients();
+        $technologies = new Technologies();
         $data['breadcrumbs'] = [];
         $data['breadcrumbs'][] = [
             'text' => 'Projects',
@@ -34,7 +36,8 @@ class Project extends Controller
         ];
         $data['title'] = "Add Project";
         $data['clientsData'] = $clients->getClientsData();
+        $data['technologiesData'] = $technologies->getTechnologies();
 
-        return view('Backend.Pages.addProject', $data);
+        return view('Backend.Projects.addProject', $data);
     }
 }
