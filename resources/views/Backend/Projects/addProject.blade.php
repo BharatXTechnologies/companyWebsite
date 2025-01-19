@@ -44,8 +44,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="technologies" class="mb-2">Technologies</label>
-                                        <select class="form-control" name="technologies">
-                                            <option hidden>Select Technologies</option>
+                                        <select class="form-control multiple-select" id="technologies" name="technologies[]" multiple>
                                             @if (!empty($technologiesData))
                                                 @foreach ($technologiesData as $technologies)
                                                     <option value="{{ $technologies->id }}">{{ $technologies->technology_name }}</option>
@@ -56,6 +55,20 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label for="start_date" class="mb-2">Project Category</label>
+                                        <select class="form-control" name="project_category">
+                                            <option value="1" {{ old('project_category', '1') == '1'?'selected' : '' }}>Technology</option>
+                                            <option value="2" {{ old('project_category', '2') == '2'?'selected' : '' }}>Infrastructure</option>
+                                            <option value="3" {{ old('project_category', '3') == '3'?'selected' : '' }}>Marketing</option>
+                                            <option value="4" {{ old('project_category', '4') == '4'?'selected' : '' }}>Finance</option>
+                                            <option value="5" {{ old('project_category', '5') == '5'?'selected' : '' }}>Product Development</option>
+                                            <option value="6" {{ old('project_category', '6') == '6'?'selected' : '' }}>Sales</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -64,3 +77,18 @@
         </div>
     </section>
 @endsection
+<script>
+     $(document).ready(function() {
+        $('#technologies').selectize({
+            plugins: ['remove_button'],
+            delimiter: ',',
+            persist: false,
+            create: function(input) {
+                return {
+                    value: input,
+                    text: input
+                };
+            }
+        });
+     })
+</script>
