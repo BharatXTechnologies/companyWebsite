@@ -40,19 +40,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="technologies" class="mb-2">Technologies</label>
-                                        <select class="form-control multiple-select" id="technologies" name="technologies[]" multiple>
-                                            @if (!empty($technologiesData))
-                                                @foreach ($technologiesData as $technologies)
-                                                    <option value="{{ $technologies->id }}">{{ $technologies->technology_name }}</option>
-                                                @endforeach
-                                            @else
-                                                <option>No Technologies</option>
-                                            @endif
-                                        </select>
+                                        <label for="project_budgte" class="mb-2">Project Budget</label>
+                                        <input class="form-control" type="text" name="project_budgte" placeholder="Enter Project Budget..." value="{{ old('budget') }}"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -68,6 +60,56 @@
                                         </select>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="technologies" class="mb-2">Technologies</label>
+                                        <select class="form-control multiple-select" id="technologies" name="technologies[]" multiple>
+                                            @if (!empty($technologiesData))
+                                                @foreach ($technologiesData as $technologies)
+                                                    <option value="{{ $technologies->id }}">{{ $technologies->technology_name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option>No Technologies</option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="status" class="mb-2">Status</label><br/>
+                                        <input type="checkbox" class="me-2" id="status" name="status" checked required/><label for="" class="me-2">Active</label>
+                                        <input type="checkbox" id="status" name="status" class="me-2"  required/><label for="" class="me-2">Inactive</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="project_url mb-2">Project URL</label>
+                                        <input type="text" class="form-control" id="project_url" name="project_url" placeholder="Enter Project URL..."/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="project_image" class="mb-2">Project Image</label>
+                                        <input type="file" class="form-control" id="project_image" name="project_image"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="description" class="mb-2">Description</label>
+                                        <textarea class="form-control" id="editor" name="description" rows="5">{{ old('description') }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Save Projects"/>
+                                    <input type="reset" class="btn btn-secondary btn-block" value="Cancel"/>
                                 </div>
                             </div>
                         </form>

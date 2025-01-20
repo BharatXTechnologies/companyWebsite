@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Admin;
+use App\Http\Controllers\Backend\categoryController;
 use App\Http\Controllers\Backend\Clients;
 use App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Backend\Technology;
@@ -45,6 +46,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/contactSetting', [Admin::class, 'contactSetting'])->name('contactSetting')->middleware('isAdminLogin');
     Route::post('/storeContactSetting', [Admin::class, 'storeContactSetting'])->name('storeContactSetting')->middleware('isAdminLogin');
 
+    // category
+    Route::get('/category', [categoryController::class, 'index'])->name('category')->middleware('isAdminLogin');
+    Route::get('/add-category', [categoryController::class, 'addCategory'])->name('addCategory')->middleware('isAdminLogin');
 
     // technology
     Route::get('/technology', [Technology::class, 'index'])->name('technologies')->middleware('isAdminLogin');

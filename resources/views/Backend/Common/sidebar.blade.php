@@ -14,6 +14,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.category' || Route::currentRouteName() == 'admin.addCategory' ? 'active' : '' }}"
+                href="{{ route('admin.category') }}">
+                <i class="bi bi-tags"></i><span>Category</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link {{ Route::currentRouteName() == 'admin.projects' || Route::currentRouteName() == 'admin.addProject' ? 'active' : '' }}"
                 href="{{ route('admin.projects') }}">
                 <i class="bi bi-layout-text-sidebar"></i><span>Projects</span>
