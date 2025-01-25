@@ -48,7 +48,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // category
     Route::get('/category', [categoryController::class, 'index'])->name('category')->middleware('isAdminLogin');
-    Route::get('/add-category', [categoryController::class, 'addCategory'])->name('addCategory')->middleware('isAdminLogin');
+    Route::post('/store-category', [categoryController::class, 'storeCategory'])->name('storeCategory')->middleware('isAdminLogin');
+    Route::get('/delete-category/{id}', [categoryController::class, 'deleteCategory'])->name('deleteCategory')->middleware('isAdminLogin');
 
     // technology
     Route::get('/technology', [Technology::class, 'index'])->name('technologies')->middleware('isAdminLogin');
