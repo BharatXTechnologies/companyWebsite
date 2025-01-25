@@ -17,7 +17,7 @@
                         <a href="{{ route('admin.projects') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.storeProject') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
@@ -51,12 +51,14 @@
                                     <div class="form-group">
                                         <label for="start_date" class="mb-2">Project Category</label>
                                         <select class="form-control" name="project_category">
-                                            <option value="1" {{ old('project_category', '1') == '1'?'selected' : '' }}>Technology</option>
-                                            <option value="2" {{ old('project_category', '2') == '2'?'selected' : '' }}>Infrastructure</option>
-                                            <option value="3" {{ old('project_category', '3') == '3'?'selected' : '' }}>Marketing</option>
-                                            <option value="4" {{ old('project_category', '4') == '4'?'selected' : '' }}>Finance</option>
-                                            <option value="5" {{ old('project_category', '5') == '5'?'selected' : '' }}>Product Development</option>
-                                            <option value="6" {{ old('project_category', '6') == '6'?'selected' : '' }}>Sales</option>
+                                            <option hidden>Select Category</option>
+                                            @if (!empty($categoryData))
+                                                @foreach ($categoryData as $category)
+                                                    <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option>No Category</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
