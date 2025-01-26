@@ -64,9 +64,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/projects', [Project::class, 'projectsList'])->name('projects')->middleware('isAdminLogin');
     Route::get('/add-Project', [Project::class, 'addProject'])->name('addProject')->middleware('isAdminLogin');
     Route::post('/store-Project', [Project::class,'storeProject'])->name('storeProject')->middleware('isAdminLogin');
-    // Route::get('/toggleProjectStatus/{id}', [Project::class, 'toggleProjectStatus'])->name('toggleProjectStatus')->middleware('isAdminLogin');
-    // Route::get('/deleteProject/{id}', [Project::class, 'deleteProject'])->name('deleteProject')->middleware('isAdminLogin');
-    // Route::get('/editProject/{id}', [Project::class, 'addProject'])->name('editProject')->middleware('isAdminLogin');
+    Route::get('/edit-project/{id}', [Project::class, 'addProject'])->name('editProject')->middleware('isAdminLogin');
+    Route::get('/delete-project/{id}', [Project::class, 'deleteProject'])->name('deleteProject')->middleware('isAdminLogin');
+    Route::get('/toggle-projectStatus/{id}', [Project::class, 'toggleProjectStatus'])->name('toggleProjectStatus')->middleware('isAdminLogin');
 
     // social media settings
     Route::get('/socialMediaSetting', [Admin::class,'socialMediaSetting'])->name('socialMediaSetting')->middleware('isAdminLogin');

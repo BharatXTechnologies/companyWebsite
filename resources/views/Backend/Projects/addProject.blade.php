@@ -22,12 +22,20 @@
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
                                     <div class="form-group">
-                                        <label for="project_name" class="mb-2">Project Name</label>
-                                        <input type="text" class="form-control" id="project_name" name="project_name" required value="{{ old('project_name') }}">
+                                        <label for="project_name" class="mb-2">Project Name
+                                            @error('project_name')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
+                                        <input type="text" class="form-control" id="project_name" name="project_name"  value="{{ old('project_name') }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <label for="client_name" class="mb-2">Client Name</label>
+                                    <label for="client_name" class="mb-2">Client Name
+                                        @error('client')
+                                            <span class="text-danger"> : {{ $message }}</span>
+                                        @enderror
+                                    </label>
                                     <select class="form-control" name="client">
                                         <option hidden>Select Client</option>
                                         @if (!empty($clientsData))
@@ -43,13 +51,21 @@
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="project_budgte" class="mb-2">Project Budget</label>
+                                        <label for="project_budgte" class="mb-2">Project Budget
+                                            @error('project_budgte')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
                                         <input class="form-control" type="text" name="project_budgte" placeholder="Enter Project Budget..." value="{{ old('budget') }}"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-group">
-                                        <label for="start_date" class="mb-2">Project Category</label>
+                                        <label for="start_date" class="mb-2">Project Category
+                                            @error('project_category')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
                                         <select class="form-control" name="project_category">
                                             <option hidden>Select Category</option>
                                             @if (!empty($categoryData))
@@ -66,7 +82,11 @@
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="technologies" class="mb-2">Technologies</label>
+                                        <label for="technologies" class="mb-2">Technologies
+                                            @error('technologies')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
                                         <select class="form-control multiple-select" id="technologies" name="technologies[]" multiple>
                                             @if (!empty($technologiesData))
                                                 @foreach ($technologiesData as $technologies)
@@ -80,22 +100,34 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="status" class="mb-2">Status</label><br/>
-                                        <input type="checkbox" class="me-2" id="status" name="status" checked required/><label for="" class="me-2">Active</label>
-                                        <input type="checkbox" id="status" name="status" class="me-2"  required/><label for="" class="me-2">Inactive</label>
+                                        <label for="status" class="mb-2">Status
+                                            @error('status')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label><br/>
+                                        <input type="radio" value="1" class="me-2" id="active" name="status" checked /><label for="active" class="me-2">Active</label>
+                                        <input type="radio" value="0" id="inactive" name="status" class="me-2" /><label for="inactive" class="me-2">Inactive</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="project_url mb-2">Project URL</label>
+                                        <label class="project_url mb-2">Project URL
+                                            @error('project_url')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
                                         <input type="text" class="form-control" id="project_url" name="project_url" placeholder="Enter Project URL..."/>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="project_image" class="mb-2">Project Image</label>
+                                        <label for="project_image" class="mb-2">Project Image
+                                            @error('project_image')
+                                                <span class="text-danger"> : {{ $message }}</span>
+                                            @enderror
+                                        </label>
                                         <input type="file" class="form-control" id="project_image" name="project_image"/>
                                     </div>
                                 </div>
