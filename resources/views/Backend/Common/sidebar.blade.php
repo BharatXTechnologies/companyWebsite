@@ -20,7 +20,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() == 'admin.projects' || Route::currentRouteName() == 'admin.addProject' ? 'active' : '' }}"
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.projects' || Route::currentRouteName() == 'admin.addProject' || Route::currentRouteName() == 'admin.editProject' ? 'active' : '' }}"
                 href="{{ route('admin.projects') }}">
                 <i class="bi bi-layout-text-sidebar"></i><span>Projects</span>
             </a>

@@ -32,24 +32,29 @@ class Project extends Controller
         return view('Backend.Projects.Projects', $data);
     }
 
-    public function addProject(){
+    public function addProject($id = null){
         $clients = new Clients();
         $technologies = new Technologies();
+
+        $projectData = null;
+        if(!is_null($id)){
+            $projectData = $this->project->getProjects($id);
+        }
         $data['breadcrumbs'] = [];
         $data['breadcrumbs'][] = [
             'text' => 'Projects',
             'url' => route('admin.projects')
         ];
         $data['breadcrumbs'][] = [
-            'text' => 'Add Projects',
-            'url' => route('admin.addProject')
+            'text' => $id ? 'Edit Project' :'Add Projects',
+            'url' => $id ? route('admin.editProject', $id) : route('admin.addProject')
         ];
-        $data['title'] = "Add Project";
+        $data['title'] = $id ? "Edit Project" :"Add Project";
         $data['clientsData'] = $clients->getClientsData();
         $data['technologiesData'] = $technologies->getTechnologies();
         $data['categoryData'] = $this->category->getCategory();
 
-        return view('Backend.Projects.addProject', $data);
+        return view('Backend.Projects.addProject', $data, compact('projectData'));
     }
 
     // store project data
@@ -132,6 +137,25 @@ class Project extends Controller
                 return redirect()->route('admin.projects')->with('success', 'Project deleted successfully.');
             } else{
                 return redirect()->route('admin.projects')->with('error', 'Failed to delete project.');
+            }
+        }
+    }
+
+    // change status of project
+    public function toggleProjectStatus($id){
+        if(is_null($id)){
+            return redirect()->route('admin.projects')->with('error', 'Project ID does not exist.');
+        }else{
+            $project = $this->project->getProjects($id);
+            if(empty($project)){
+                return redirect()->route('admin.projects')->with('error', 'Project not found.');
+            }
+            $data = ['status' => !$project->status];
+            $project = $this->project->updateProjectStatus($id, $data);
+            if($project){
+                return redirect()->route('admin.projects')->with('success', 'Project status changed successfully.');
+            } else {
+                return redirect()->route('admin.projects')->with('error', 'Failed to change project status.');
             }
         }
     }

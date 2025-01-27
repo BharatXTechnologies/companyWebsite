@@ -19,6 +19,10 @@ class Projects extends Model
             return Projects::find($id);
         }
     }
+    // update projects data
+    function updateProjectStatus($id, $data){
+        return Projects::where('id', $id)->update($data);
+    }
 
     // delete projects
     function deleteProject($id){

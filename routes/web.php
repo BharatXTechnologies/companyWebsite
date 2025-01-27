@@ -65,6 +65,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/add-Project', [Project::class, 'addProject'])->name('addProject')->middleware('isAdminLogin');
     Route::post('/store-Project', [Project::class,'storeProject'])->name('storeProject')->middleware('isAdminLogin');
     Route::get('/edit-project/{id}', [Project::class, 'addProject'])->name('editProject')->middleware('isAdminLogin');
+    Route::post('/update-project/{id}', [Project::class, 'storeProject'])->name('updateProject')->middleware('isAdminLogin');
     Route::get('/delete-project/{id}', [Project::class, 'deleteProject'])->name('deleteProject')->middleware('isAdminLogin');
     Route::get('/toggle-projectStatus/{id}', [Project::class, 'toggleProjectStatus'])->name('toggleProjectStatus')->middleware('isAdminLogin');
 

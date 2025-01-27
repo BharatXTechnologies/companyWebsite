@@ -51,12 +51,9 @@
                                                 <td>{{ $project->budget }}</td>
                                                 <td>{{ $project->project_url }}</td>
                                                 <td>
-                                                    @if($project->status == 1)
-                                                        <a href="{{ route('admin.toggleStatus', $project->id) }}" class="btn btn-success btn-sm">Active</a>
-                                                    @else
-                                                        <a href="{{ route('admin.toggleStatus', $project->id) }}" class="btn btn-danger btn-sm">Inactive</a>
-                                                    @endif
-                                                </td>
+                                                    <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $project->status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.toggleProjectStatus', $project->id) }}">
+                                                    {{ $project->status == 1 ? 'Active' : 'Inactive' }}
+                                                 </a>
                                                 <td>
                                                     <a href="{{ route('admin.editProject', $project->id) }}" class="btn btn-success btn-sm">
                                                         <i class="bi bi-pencil-square"></i>
