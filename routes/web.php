@@ -1,5 +1,6 @@
 <?php
 
+// backend configuration
 use App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Backend\categoryController;
 use App\Http\Controllers\Backend\Clients;
