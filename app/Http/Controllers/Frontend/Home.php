@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class Home extends Controller
 {
     public function index(){
-        return view('Frontend.index');
+        $data['title'] = 'Home | Zero1infinity Innovations A Software Solution Company';
+        return view('Frontend.index', $data);
     }
 }
