@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Home::class,'index'])->name('index');
 
+
+
+
+
+// backend
 Route::prefix('admin')->name('admin.')->group(function(){
 
     // common routes
@@ -23,7 +28,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
     Route::get('/login', [Admin::class, 'AdminLogin'])->name('login')->middleware('isAdminLogout');
-    Route::post('/loginProccess', [Admin::class, 'AdminLoginProccess'])->name('loginProccess')->middleware('isAdminLogout');
+    Route::post('/login-Proccess', [Admin::class, 'AdminLoginProccess'])->name('loginProccess')->middleware('isAdminLogout');
     Route::get('/logout', [Admin::class, 'logoutAdmin'])->name('logout');
     
     // admin dashboard
@@ -31,12 +36,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     
     Route::get('/clients', [Clients::class, 'ClientsList'])->name('clients')->middleware('isAdminLogin');
-    Route::get('/addClient', [Clients::class, 'addClient'])->name('addClient')->middleware('isAdminLogin');
-    Route::post('/storeClient', [Clients::class, 'storeClient'])->name('storeClient')->middleware('isAdminLogin');
-    Route::get('/toggleStatus/{id}', [Clients::class, 'toggleClientStatus'])->name('toggleStatus')->middleware('isAdminLogin');
-    Route::get('/deleteClient/{id}', [Clients::class, 'deleteClient'])->name('deleteClient')->middleware('isAdminLogin');
-    Route::get('/editClient/{id}', [Clients::class, 'addClient'])->name('editClient')->middleware('isAdminLogin');
-    Route::put('/updateClient/{id}', [Clients::class, 'storeClient'])->name('updateClient')->middleware('isAdminLogin');
+    Route::get('/add-client', [Clients::class, 'addClient'])->name('addClient')->middleware('isAdminLogin');
+    Route::post('/store-client', [Clients::class, 'storeClient'])->name('storeClient')->middleware('isAdminLogin');
+    Route::get('/toggle-status/{id}', [Clients::class, 'toggleClientStatus'])->name('toggleStatus')->middleware('isAdminLogin');
+    Route::get('/delete-client/{id}', [Clients::class, 'deleteClient'])->name('deleteClient')->middleware('isAdminLogin');
+    Route::get('/edit-client/{id}', [Clients::class, 'addClient'])->name('editClient')->middleware('isAdminLogin');
+    Route::put('/update-client/{id}', [Clients::class, 'storeClient'])->name('updateClient')->middleware('isAdminLogin');
 
     // Website setting
     Route::get('/mediaSetting', [Admin::class, 'mediaSetting'])->name('mediaSetting')->middleware('isAdminLogin');
@@ -65,7 +70,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/add-Project', [Project::class, 'addProject'])->name('addProject')->middleware('isAdminLogin');
     Route::post('/store-Project', [Project::class,'storeProject'])->name('storeProject')->middleware('isAdminLogin');
     Route::get('/edit-project/{id}', [Project::class, 'addProject'])->name('editProject')->middleware('isAdminLogin');
-    Route::post('/update-project/{id}', [Project::class, 'storeProject'])->name('updateProject')->middleware('isAdminLogin');
+    Route::put('/update-project/{id}', [Project::class, 'storeProject'])->name('updateProject')->middleware('isAdminLogin');
     Route::get('/delete-project/{id}', [Project::class, 'deleteProject'])->name('deleteProject')->middleware('isAdminLogin');
     Route::get('/toggle-projectStatus/{id}', [Project::class, 'toggleProjectStatus'])->name('toggleProjectStatus')->middleware('isAdminLogin');
 

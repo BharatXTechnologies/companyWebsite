@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteName() == 'admin.clients' || Route::currentRouteName() == 'admin.addClient' ? 'active' : '' }}"
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.clients' || Route::currentRouteName() == 'admin.addClient' ||  Route::currentRouteName() == 'admin.editClient' ? 'active' : '' }}"
                 href="{{ route('admin.clients') }}">
                 <i class="bi bi-people"></i><span>Clients</span>
             </a>
