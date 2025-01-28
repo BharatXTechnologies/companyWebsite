@@ -7,7 +7,11 @@ use App\Http\Controllers\Backend\Clients;
 use App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Backend\Technology;
 use App\Http\Controllers\Backend\TrashedController;
+
+// frontend configuration
 use App\Http\Controllers\Frontend\Home;
+
+// routes
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Home::class,'index'])->name('index');
