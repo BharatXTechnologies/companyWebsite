@@ -1,60 +1,173 @@
-.navbar-nav .nav-item .nav-link{
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.2s ease;
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Scrollbar width */
 }
 
-.navbar-nav .nav-item .nav-link:hover{
-    color: #007bff !important;
-    text-decoration-line: underline;
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    /* Dark Blue Track */
+    border-radius: 10px;
 }
 
-.carousel-item img{
-    max-height: 100%;
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+    background: #f9a826;
+    /* Silver Thumb */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar Thumb Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
+    /* Gold on Hover */
+}
+
+/* navbar */
+.navbar {
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 1000;
+    transition: 0.4s;
+    padding: 15px 0;
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    border-radius: 0;
 }
 
-/* tranding product */
-.tranding-product {
-    position: relative;
-    display: inline-block;
-    font-size: 24px; 
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    display: none;
 }
 
-.tranding-product::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -10px; 
-    height: 4px; 
-    background-color: rgb(68, 66, 66); 
-    border-radius: 10px !important;
+.navbar-brand img {
+    height: 50px;
 }
 
-.tranding-product::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -12px;
-    z-index: 9999;
-    width: 100px; 
-    height: 8px; 
-    border-radius: 10px !important;
-    background-color: rgb(230, 8, 8);
+.navbar-toggler {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 1000;
 }
 
-.product-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+.navbar-brand {
+    color: #003366;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
-.product-card:hover {
-    transform: translateY(-10px);
+
+
+.navbar-brand:hover {
+    color: #003366 !important;
 }
-.product-image a img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: black !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #f9a826 !important;
+    transform: scale(1.1);
+}
+
+.btn-custom {
+    background-color: #f9a826;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: white;
+    color: #f9a826;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        text-align: center;
+    }
+}
+
+/* Hero Banner Styling */
+.hero-section {
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hero-content {
+    text-align: left;
+    animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-custom {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.illustration {
+    mix-blend-mode: multiply;
+    animation: slideIn 1.8s ease;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: right;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-content,
+.illustration {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
 }

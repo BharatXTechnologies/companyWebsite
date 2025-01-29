@@ -16,5 +16,17 @@
     @yield('section')
     @include('Frontend.Common.footer')
     <script src="{{ URL::asset('frontend/assets/js/mdb.umd.min.js') }}"></script>
+    <script src="{{ URL::asset('frontend/assets/js/mdb.min.js') }}"></script>
+    <!-- Navbar Scroll Effect -->
+    <script>
+        window.addEventListener("scroll", function() {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
 </body>
 </html>
