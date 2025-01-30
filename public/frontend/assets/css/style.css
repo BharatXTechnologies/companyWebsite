@@ -1,28 +1,51 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
     /* Scrollbar width */
 }
 
 /* Scrollbar Track */
 ::-webkit-scrollbar-track {
-    background: #ffffff;
-    /* Dark Blue Track */
-    border-radius: 10px;
+    background: #003366;
 }
 
 /* Scrollbar Thumb */
 ::-webkit-scrollbar-thumb {
     background: #f9a826;
-    /* Silver Thumb */
-    border-radius: 10px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Scrollbar Thumb Hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #ffd700;
+    background: #003366;
     /* Gold on Hover */
+}
+
+/* Scrollbar Styling for Small Screens */
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 5px; /* Narrower scrollbar for small screens */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #002244;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #f9a826;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #002244;
+    }
 }
 
 /* navbar */
@@ -32,10 +55,10 @@
     width: 100%;
     z-index: 1000;
     transition: 0.4s;
-    padding: 15px 0;
     background: #ffffff;
     backdrop-filter: blur(10px);
     border-radius: 0;
+    border-top: 5px solid #003366;
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
@@ -46,7 +69,7 @@
 }
 
 .navbar-brand img {
-    height: 50px;
+    height: 70px;
 }
 
 .navbar-toggler {
@@ -104,11 +127,12 @@
 /* Hero Banner Styling */
 .hero-section {
     background: linear-gradient(135deg, #e3f2fd, #ffffff);
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin-top: 80px;
 }
 
 .hero-content {
@@ -166,8 +190,78 @@
     .hero-section {
         flex-direction: column;
         text-align: center;
+        margin-top: 100px;
     }
     .hero-content {
         text-align: center;
     }
 }
+
+/* about section */
+.about-section {
+    padding: 80px 20px;
+    background-color: white;
+    position: relative;
+}
+.company-name{
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+}
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    color: #f9a826;
+    font-weight: bold;
+}
+
+.experience-number {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #c49a85;
+}
+
+.subtext {
+    font-size: 1rem;
+    color: #555;
+}
+
+.discover-btn {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.7s ease, background-size 0.5s ease-in-out;
+}
+.discover-btn:hover{
+    color: #f9a826 !important;
+}
+
+/* Animation */
+.animate__animated {
+    animation-duration: 1.5s;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon-box {
+    font-size: 40px;
+    color: #003366;
+}
+
+.discover-btn {
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* contact section */

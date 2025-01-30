@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="#">
-            {{-- <img src="{{ URL::asset() }}" alt="Logo"> --}}Z1i
+            <img src="{{ URL::asset('frontend/assets/images/logo/z1i-icon.png') }}" title="Zero1infinity Innovations" alt="Z1i Logo">
         </a>
 
         <!-- Toggle Button -->
