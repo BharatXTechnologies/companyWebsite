@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Login - Zero1Infinity</title>
-    <link rel="icon" href="{{ URL::asset('assets/img/Logo/logo.png') }}" />
+    <link rel="icon" href="{{ URL::asset('frontend/assets/images/logo/z1i-icon.png') }}" />
     <style>
         body {
             background-color: #f1f1f1;
@@ -93,7 +93,7 @@
                 </div>
             @endif
         </h5>
-        <img src="{{ URL::asset('assets/img/Logo/new_logo.png') }}" alt="Zer00neinfinity Solutions">
+        <img src="{{ URL::asset('frontend/assets/images/logo/z1i-icon.png') }}" alt="Zer00neinfinity Solutions">
         <form action="{{ route('admin.loginProccess') }}" method="post">
             @csrf
             <input type="text" name="email" placeholder="Username or Email Address" required>

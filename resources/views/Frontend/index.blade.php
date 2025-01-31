@@ -1,7 +1,7 @@
 @extends('Frontend.Common.baseLayout')
 @section('section')
     <!-- Hero Section -->
-    <section class="hero-section" style="border-bottom: 1px solid black; ">
+    <section class="hero-section">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-1"></div>
@@ -99,7 +99,7 @@
 
     {{-- services section --}}
     <div class="container py-5 mb-4">
-        <div class="text-center mb-5">
+        <div class="text-center mb-5 wow animate__animated animate__fadeInUp">
             <h5 class="text-uppercase text-muted">An Umbrella Solution For All IT Needs</h5>
             <h2>Reach out to the world’s most <span class="text-primary">reliable IT services.</span></h2>
         </div>
@@ -207,40 +207,157 @@
             </div>
         </div>
     </div>
-    <div class="container py-5 wow animate__animated animate__fadeInUp" data-wow-duration="1.2s">
+    <div class="container py-5 mb-5 wow animate__animated animate__fadeInUp" data-wow-duration="1.2s">
         <div class="row">
-            <div class="col-md-5 wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s">
-                <h2 style="font-weight: bold; border-left: 5px solid #c49a85; padding-left: 1rem; font-size: 2rem;">Obtaining further information by <span style="color: #003366;">dropping a message</span> to our experienced IT professionals.</h2>
-                <p class="mt-4">We’re available for 16 hours a day!<br/>
-                    Contact will require a detailed analysis and assessment of your plan. Our experienced team can provide the best estimation for technology and budget based on your requirements.</p>
+            <div class="col-md-5 wow animate__animated animate__fadeInLeft pt-5" data-wow-duration="1.5s">
+                <h2 style="font-weight: bold; border-left: 5px solid #c49a85; padding-left: 1rem; font-size: 2rem;">
+                    Obtaining further information by <span style="color: #003366;">dropping a message</span> to our
+                    experienced IT professionals.</h2>
+                <p class="mt-4">We’re available for 16 hours a day!<br />
+                    Contact will require a detailed analysis and assessment of your plan. Our experienced team can provide
+                    the best estimation for technology and budget based on your requirements.</p>
             </div>
             <div class="col-md-7 wow animate__animated animate__fadeInRight" data-wow-duration="1.5s">
                 <form action="" method="post" class="shadow-lg p-4 rounded bg-white">
                     <div class="row mb-1">
                         <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control wow animate__animated animate__fadeIn animate__delay-1s" placeholder="Your Name" data-wow-duration="1s">
+                            <input type="text" name="name"
+                                class="form-control wow animate__animated animate__fadeIn animate__delay-1s"
+                                placeholder="Your Name" data-wow-duration="1s">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input type="email" class="form-control wow animate__animated animate__fadeIn animate__delay-2s" placeholder="Your Email" data-wow-duration="1.2s">
+                            <input type="email" name="email"
+                                class="form-control wow animate__animated animate__fadeIn animate__delay-2s"
+                                placeholder="Your Email" data-wow-duration="1.2s">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <input type="text" class="form-control wow animate__animated animate__fadeIn animate__delay-3s" placeholder="Subject" data-wow-duration="1.3s">
+                            <input type="text" name="phone"
+                                class="form-control wow animate__animated animate__fadeIn animate__delay-3s"
+                                placeholder="Phone Number" data-wow-duration="1.3s">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <textarea class="form-control wow animate__animated animate__fadeIn animate__delay-4s" rows="5" placeholder="Your Message" data-wow-duration="1.4s"></textarea>
+                            <input type="text" name="subject"
+                                class="form-control wow animate__animated animate__fadeIn animate__delay-3s"
+                                placeholder="Subject" data-wow-duration="1.3s">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <input type="submit" value="Get a free consultation" class="btn btn-warning btn-block wow animate__animated animate__bounceInUp" data-wow-duration="1s"/>
+                            <textarea class="form-control wow animate__animated animate__fadeIn animate__delay-4s" name="message" rows="5"
+                                placeholder="Your Message" data-wow-duration="1.4s"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <input type="submit" value="Get a free consultation"
+                                class="btn btn-warning btn-block wow animate__animated animate__bounceInUp"
+                                data-wow-duration="1s" />
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    {{-- project section --}}
+    <div class="container py-5 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
+        <h2 class="text-center font-weight-bold mb-4 wow animate__animated animate__fadeInLeft">A Glimpse of Excellence: <span class="text-primary">Our Portfolio</span></h2>
+
+        <!-- Tabs for Categories -->
+        <ul class="nav nav-pills mb-4 justify-content-center">
+            <li class="nav-item wow animate__animated animate__fadeInLeft">
+                <a class="nav-link active" data-filter="all">All</a>
+            </li>
+            <li class="nav-item wow animate__animated animate__fadeInUp">
+                <a class="nav-link" data-filter="app">App Development</a>
+            </li>
+            <li class="nav-item wow animate__animated animate__fadeInDown">
+                <a class="nav-link" data-filter="web">Web Development</a>
+            </li>
+            <li class="nav-item wow animate__animated animate__fadeInRight">
+                <a class="nav-link" data-filter="software">Software</a>
+            </li>
+            <li class="nav-item wow animate__animated animate__fadeInUp">
+                <a class="nav-link" data-filter="seo">SEO</a>
+            </li>
+        </ul>
+
+        <!-- Project Gallery -->
+        <div class="row">
+            <div class="col-md-4 mb-4 project-card app wow animate__animated animate__fadeInLeft">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project4.png') }}" class="img-fluid" alt="App Project 1">
+                    <div class="overlay">
+                        <a href="#" class="project-name">App Project 1</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 project-card web wow animate__animated animate__fadeInDown">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project.png') }}" class="img-fluid" alt="Web Project 1">
+                    <div class="overlay">
+                        <a href="#" class="project-name">Web Project 1</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 project-card software wow animate__animated animate__fadeInRight">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project1.png') }}" class="img-fluid" alt="Software Project 1">
+                    <div class="overlay">
+                        <a href="#" class="project-name">Software Project 1</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 project-card seo wow animate__animated animate__fadeInLeft">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project2.png') }}" class="img-fluid" alt="SEO Project 1">
+                    <div class="overlay">
+                        <a href="#" class="project-name">SEO Project 1</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 project-card app wow animate__animated animate__fadeInUp">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project3.png') }}" class="img-fluid" alt="App Project 2">
+                    <div class="overlay">
+                        <a href="#" class="project-name">App Project 2</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 project-card web wow animate__animated animate__fadeInRight">
+                <div class="project-item">
+                    <img src="{{ URL::asset('frontend/assets/images/projects/project4.png') }}" class="img-fluid" alt="Web Project 2">
+                    <div class="overlay">
+                        <a href="#" class="project-name">Web Project 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filters = document.querySelectorAll(".nav-link");
+            const projects = document.querySelectorAll(".project-card");
+
+            filters.forEach(filter => {
+                filter.addEventListener("click", function() {
+                    filters.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const category = this.getAttribute("data-filter");
+
+                    projects.forEach(project => {
+                        if (category === "all" || project.classList.contains(category)) {
+                            project.style.display = "block";
+                        } else {
+                            project.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

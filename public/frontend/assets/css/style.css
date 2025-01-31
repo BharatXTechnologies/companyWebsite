@@ -68,6 +68,15 @@ body {
     display: none;
 }
 
+.dropdown-menu li .dropdown-item{
+    font-weight: bold !important;
+}
+
+.dropdown-menu li .dropdown-item:hover{
+    color: white !important;
+    background-color: #f9a826 !important;
+}
+
 .navbar-brand img {
     height: 70px;
 }
@@ -248,6 +257,7 @@ body {
 
 .card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
 }
 
 .card:hover {
@@ -265,3 +275,87 @@ body {
 }
 
 /* contact section */
+.shadow-lg{
+    box-shadow: 
+    inset 3px 3px 6px rgba(204, 219, 232, 1),  /* Bottom-right */
+    inset -3px -3px 6px rgba(255, 255, 255, 0.5), /* Top-left */
+    inset -3px 3px 6px rgba(204, 219, 232, 1),  /* Bottom-left */
+    inset 3px -3px 6px rgba(204, 219, 232, 1) !important; /* Top-right */
+
+}
+
+/* project section */
+
+.nav-pills .nav-link {
+    background: #f1f1f1;
+    color: #003366;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+    background: #f9a826;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+/* Project Card Styling */
+.project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px rgba(204, 219, 232, 1), -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-item:hover .overlay {
+    opacity: 1;
+}
+
+.project-name {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.project-name:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.list-unstyled li a{
+    color: #003366;
+}
+.list-unstyled li a:hover{
+    color: #f9a826;
+}

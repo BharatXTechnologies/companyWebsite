@@ -8,7 +8,7 @@
     <meta content="" name="keywords">
     <meta name="author" content="ZeroOneInfinity">
     <title>@stack('setTitle')</title>
-    <link href="{{ URL::asset('assets/img/Logo/logo.png') }}" rel="icon">
+    <link href="{{ URL::asset('frontend/assets/images/logo/z1i-icon.png') }}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -54,7 +54,6 @@
     <!-- Vendor JS Files -->
     <script src="{{ URL::asset('Admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ URL::asset('Admin/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
-    <script src="{{ URL::asset('Admin/assets/vendor/tinymce/tinymce.min.js') }}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ URL::asset('Admin/assets/js/main.js') }}"></script>
