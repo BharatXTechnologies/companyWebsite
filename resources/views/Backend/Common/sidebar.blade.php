@@ -14,6 +14,18 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.features' || Route::currentRouteName() == 'admin.editFeature' ? 'active' : '' }}"
+                href="{{ route('admin.features') }}">
+                <i class="bi bi-list-check"></i><span>Features</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() == 'admin.services' || Route::currentRouteName() == 'admin.addService' ? 'active' : '' }}"
+                href="{{ route('admin.services') }}">
+                <i class="bi bi-boxes"></i><span>Service</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link {{ Route::currentRouteName() == 'admin.category' || Route::currentRouteName() == 'admin.addCategory' ? 'active' : '' }}"
                 href="{{ route('admin.category') }}">
                 <i class="bi bi-tags"></i><span>Category</span>

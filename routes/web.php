@@ -1,9 +1,12 @@
 <?php
 
 // backend configuration
+
+use App\Http\Controllers\Backend\serviceController;
 use App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Backend\categoryController;
 use App\Http\Controllers\Backend\Clients;
+use App\Http\Controllers\Backend\featureController;
 use App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Backend\Technology;
 use App\Http\Controllers\Backend\TrashedController;
@@ -47,6 +50,17 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/delete-client/{id}', [Clients::class, 'deleteClient'])->name('deleteClient')->middleware('isAdminLogin');
     Route::get('/edit-client/{id}', [Clients::class, 'addClient'])->name('editClient')->middleware('isAdminLogin');
     Route::put('/update-client/{id}', [Clients::class, 'storeClient'])->name('updateClient')->middleware('isAdminLogin');
+
+    // features
+    Route::get('/features', [featureController::class, 'Features'])->name('features')->middleware('isAdminLogin');
+    Route::post('/store-feature', [featureController::class, 'storeFeature'])->name('storeFeature')->middleware('isAdminLogin');
+    Route::get('/edit-feature/{id}', [featureController::class, 'editFeature'])->name('editFeature')->middleware('isAdminLogin');
+    Route::post('/import-features', [featureController::class, 'importFeatures'])->name('importFeatures')->middleware('isAdminLogin');
+    Route::get('/delete-feature/{id}', [featureController::class, 'deleteFeature'])->name('deleteFeature')->middleware('isAdminLogin');
+
+    // services
+    Route::get('/services', [serviceController::class, 'services'])->name('services')->middleware('isAdminLogin');
+    Route::get('/add-service', [serviceController::class, 'addService'])->name('addService')->middleware('isAdminLogin');
 
     // Website setting
     Route::get('/mediaSetting', [Admin::class, 'mediaSetting'])->name('mediaSetting')->middleware('isAdminLogin');
