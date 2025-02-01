@@ -13,7 +13,6 @@
                         <span>{{ $title }}</span>
                     </h5>
                     <p class="p-0 m-0">
-                        <a href="{{ route('admin.trashed', ['module' => 'service']) }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Trash</a>
                         <a href="{{ route('admin.addService') }}" class="btn btn-outline-light btn-sm" style="font-weight: bold;">Add Service</a>
                     </p>
                 </div>
@@ -23,9 +22,10 @@
                             <thead style="border-top: 1px solid gray;">
                                 <tr>
                                     <th>#Sn</th>
-                                    <th>Technology Name</th>
-                                    <th>Technology Icon</th>
-                                    <th>Technology Description</th>
+                                    <th>Service Name</th>
+                                    <th>Service Icon</th>
+                                    <th>Service Small Desc</th>
+                                    <th>Features</th>
                                     <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>

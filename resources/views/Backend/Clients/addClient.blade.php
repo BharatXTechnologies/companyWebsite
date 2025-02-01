@@ -12,10 +12,10 @@
                     <div class="card-header mb-4 d-flex justify-content-between" style="background-color:  #7884f1; border-left: 5px solid #7884f1;">
                         <h5 class="mb-0 text-white">
                             @if ($clientData)
-                                <i class="bi bi-people "></i>
+                                <i class="bi bi-person-plus-fill"></i>
                                 <span>Edit Client Details</span>
                             @else
-                                <i class="bi bi-people "></i>
+                                <i class="bi bi-person-plus-fill"></i>
                                 <span>Add Client Details</span>
                             @endif
                         </h5>
