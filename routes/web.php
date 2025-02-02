@@ -61,6 +61,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // services
     Route::get('/services', [serviceController::class, 'services'])->name('services')->middleware('isAdminLogin');
     Route::get('/add-service', [serviceController::class, 'addService'])->name('addService')->middleware('isAdminLogin');
+    Route::post('/store-service', [serviceController::class, 'storeService'])->name('storeService')->middleware('isAdminLogin');
 
     // Website setting
     Route::get('/mediaSetting', [Admin::class, 'mediaSetting'])->name('mediaSetting')->middleware('isAdminLogin');
