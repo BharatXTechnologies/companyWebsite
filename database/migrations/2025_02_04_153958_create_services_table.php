@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('small_desc')->nullable();
             $table->longText('full_desc')->nullable();
-            $table->json('feature_ids')->nullable();
+            $table->text('feature_ids')->nullable();
             $table->timestamps();
         });
     }
