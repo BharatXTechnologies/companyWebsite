@@ -5,6 +5,7 @@
 use App\Http\Controllers\Backend\serviceController;
 use App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Backend\categoryController;
+use App\Http\Controllers\Backend\clearCache;
 use App\Http\Controllers\Backend\Clients;
 use App\Http\Controllers\Backend\featureController;
 use App\Http\Controllers\Backend\Project;
@@ -13,11 +14,12 @@ use App\Http\Controllers\Backend\TrashedController;
 
 // frontend configuration
 use App\Http\Controllers\Frontend\Home;
-
+use Illuminate\Support\Facades\Artisan;
 // routes
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Home::class,'index'])->name('index');
+Route::get('/service/{serviceName}', [Home::class, 'serviceDetails'])->name('serviceDetails');
 
 
 
@@ -100,5 +102,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     // profile settings
     Route::get('/profile', [Admin::class, 'profile'])->name('profile')->middleware('isAdminLogin');
+
+
+    // clean artisan command
+    Route::get('/clean-cashe', [clearCache::class, 'clear'])->name('cleanCashe')->middleware('isAdminLogin');
 
 });

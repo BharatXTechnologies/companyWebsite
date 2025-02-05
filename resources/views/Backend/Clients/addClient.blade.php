@@ -43,12 +43,12 @@
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <label for="email" class="mb-2">Email</label>
-                                    <input type="email" class="form-control" placeholder="Enter Client Email..." required name="email" 
+                                    <input type="email" class="form-control" placeholder="Enter Client Email..." name="email" 
                                            value="{{ old('email', $clientData->email ?? '') }}"/>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="phone" class="mb-2">Mobile Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter Mobile No..." required name="phone" 
+                                    <input type="text" class="form-control" placeholder="Enter Mobile No..." name="phone" 
                                            value="{{ old('phone', $clientData->phone ?? '') }}"/>
                                 </div>
                             </div>

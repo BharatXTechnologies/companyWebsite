@@ -54,7 +54,12 @@
                     </a>
                 </li>
             </ul>
-        </li>        
+        </li> 
+        <li class="nav-item">
+            <a  class="nav-link {{ Route::currentRouteName() == 'admin.cleanCashe' ? 'active' : '' }}" href="{{ route('admin.cleanCashe') }}">
+                <i class="bi bi-eraser-fill"></i><span>Clear Cache</span>
+            </a>
+        </li>       
     </ul>
 
 </aside>

@@ -19,6 +19,14 @@ class feature extends Model
         }
     }
 
+    function getFeatureById($featureIds){
+        $featureIds = explode(',',$featureIds);
+        foreach($featureIds as $featureId) {
+            $features[] = feature::find($featureId);
+        }
+        return $features;
+    }
+
     function deleteFeature($id){
         return feature::destroy($id);
     }

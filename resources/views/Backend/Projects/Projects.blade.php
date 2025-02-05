@@ -41,7 +41,7 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $project->project_name }}</td>
-                                                <td>{{ $project->project_description }}</td>
+                                                <td>{{ substr($project->project_description, 0, 20) }}...</td>
                                                 <td>
                                                     <img src="{{ URL::asset('assets/uploads/projects/' . $project->thumbnail) }}" alt="{{ $project->thumbnail }}" style="width: 50px; border-radius: 50%;"/>
                                                 </td>

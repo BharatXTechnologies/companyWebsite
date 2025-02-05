@@ -263,101 +263,60 @@
         </div>
     </div>
     {{-- project section --}}
-    <div class="container py-5 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-        <h2 class="text-center font-weight-bold mb-4 wow animate__animated animate__fadeInLeft">A Glimpse of Excellence: <span class="text-primary">Our Portfolio</span></h2>
+    @if (!empty($projects))
+        <div class="container py-5 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
+            <h2 class="text-center font-weight-bold mb-4 wow animate__animated animate__fadeInLeft">A Glimpse of <span class="text-primary">Our Works</span></h2>
 
-        <!-- Tabs for Categories -->
-        <ul class="nav nav-pills mb-4 justify-content-center">
-            <li class="nav-item wow animate__animated animate__fadeInLeft">
-                <a class="nav-link active" data-filter="all">All</a>
-            </li>
-            <li class="nav-item wow animate__animated animate__fadeInUp">
-                <a class="nav-link" data-filter="app">App Development</a>
-            </li>
-            <li class="nav-item wow animate__animated animate__fadeInDown">
-                <a class="nav-link" data-filter="web">Web Development</a>
-            </li>
-            <li class="nav-item wow animate__animated animate__fadeInRight">
-                <a class="nav-link" data-filter="software">Software</a>
-            </li>
-            <li class="nav-item wow animate__animated animate__fadeInUp">
-                <a class="nav-link" data-filter="seo">SEO</a>
-            </li>
-        </ul>
+            <!-- Tabs for Categories -->
+            <ul class="nav nav-pills mb-4 justify-content-center">
+                @if (!empty($category))
+                    <li class="nav-item wow animate__animated animate__fadeInLeft">
+                        <a class="nav-link active" data-filter="all">All</a>
+                    </li>
+                    @foreach ($category as $category_item)
+                        <li class="nav-item wow animate__animated animate__fadeInUp">
+                            <a class="nav-link" data-filter="{{ $category_item->name }}">{{ ucwords($category_item->name) }}</a>
+                        </li>
+                    @endforeach
+                @endif
+            </ul>
 
-        <!-- Project Gallery -->
-        <div class="row">
-            <div class="col-md-4 mb-4 project-card app wow animate__animated animate__fadeInLeft">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project4.png') }}" class="img-fluid" alt="App Project 1">
-                    <div class="overlay">
-                        <a href="#" class="project-name">App Project 1</a>
+            <!-- Project Gallery -->
+            <div class="row">
+                @foreach ($projects as $project)
+                    <div class="col-md-4 mb-4 project-card {{ $project->category->name }} wow animate__animated animate__fadeInLeft">
+                        <div class="project-item">
+                            <img src="{{ URL::asset('assets/uploads/projects/'. $project->thumbnail ) }}" class="img-fluid" alt="{{ $project->project_name }}">
+                            <div class="overlay">
+                                <a href="#" class="project-name">{{ ucwords($project->project_name) }}</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 project-card web wow animate__animated animate__fadeInDown">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project.png') }}" class="img-fluid" alt="Web Project 1">
-                    <div class="overlay">
-                        <a href="#" class="project-name">Web Project 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 project-card software wow animate__animated animate__fadeInRight">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project1.png') }}" class="img-fluid" alt="Software Project 1">
-                    <div class="overlay">
-                        <a href="#" class="project-name">Software Project 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 project-card seo wow animate__animated animate__fadeInLeft">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project2.png') }}" class="img-fluid" alt="SEO Project 1">
-                    <div class="overlay">
-                        <a href="#" class="project-name">SEO Project 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 project-card app wow animate__animated animate__fadeInUp">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project3.png') }}" class="img-fluid" alt="App Project 2">
-                    <div class="overlay">
-                        <a href="#" class="project-name">App Project 2</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 project-card web wow animate__animated animate__fadeInRight">
-                <div class="project-item">
-                    <img src="{{ URL::asset('frontend/assets/images/projects/project4.png') }}" class="img-fluid" alt="Web Project 2">
-                    <div class="overlay">
-                        <a href="#" class="project-name">Web Project 2</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const filters = document.querySelectorAll(".nav-link");
-            const projects = document.querySelectorAll(".project-card");
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const filters = document.querySelectorAll(".nav-link");
+                const projects = document.querySelectorAll(".project-card");
 
-            filters.forEach(filter => {
-                filter.addEventListener("click", function() {
-                    filters.forEach(btn => btn.classList.remove("active"));
-                    this.classList.add("active");
+                filters.forEach(filter => {
+                    filter.addEventListener("click", function() {
+                        filters.forEach(btn => btn.classList.remove("active"));
+                        this.classList.add("active");
 
-                    const category = this.getAttribute("data-filter");
+                        const category = this.getAttribute("data-filter");
 
-                    projects.forEach(project => {
-                        if (category === "all" || project.classList.contains(category)) {
-                            project.style.display = "block";
-                        } else {
-                            project.style.display = "none";
-                        }
+                        projects.forEach(project => {
+                            if (category === "all" || project.classList.contains(category)) {
+                                project.style.display = "block";
+                            } else {
+                                project.style.display = "none";
+                            }
+                        });
                     });
                 });
             });
-        });
-    </script>
+        </script>
+    @endif
 @endsection

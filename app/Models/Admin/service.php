@@ -14,14 +14,14 @@ class service extends Model
 
     function getService($id = null){
         if(is_null($id)){
-            $service = DB::table('services')->get();
-
-            $featureIds = explode(',', $service->feature_ids);
-
-            $features = DB::table('features')->whereIn('id', $featureIds)->get();
+            return service::get();
         } else{
             return service::find($id);
         }
+    }
+
+    function getServiceByName($serviceName){
+        return service::where('name', $serviceName)->first();
     }
 
 }

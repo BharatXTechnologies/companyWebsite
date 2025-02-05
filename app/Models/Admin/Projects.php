@@ -11,12 +11,17 @@ class Projects extends Model
     protected $table = 'projects';
     protected $fillable = ['project_name', 'client_id', 'category_id', 'project_description', 'thumbnail', 'project_status', 'technologies'];
 
+
+    public function category(){
+        return $this->belongsTo(category::class, 'category_id');
+    }
+
     // get projects data from database
     public function getProjects($id = null){
         if(is_null($id)){
-            return Projects::all();
+            return Projects::with('category')->get();
         } else{
-            return Projects::find($id);
+            return Projects::with('category')->where('id' ,$id)->first();
         }
     }
 

@@ -24,14 +24,19 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                        <li><a class="dropdown-item" href="#">App Development</a></li>
-                        <li><a class="dropdown-item" href="#">SEO Services</a></li>
-                        <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+                        @if (!empty($services))
+                            @foreach ($services as $service)
+                                @php
+                                    $serviceLink = explode(" ", $service->name);
+                                    $serviceLink = strtolower(implode('-', $serviceLink));
+                                @endphp
+                                <li><a class="dropdown-item" href="{{ route('serviceDetails', ['serviceName' => $serviceLink]) }}">{{ $service->name }}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
+                    <a class="nav-link" href="#">Our Work</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
