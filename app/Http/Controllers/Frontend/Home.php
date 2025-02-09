@@ -29,6 +29,14 @@ class Home extends Controller
         return view('Frontend.index', $data);
     }
 
+    // about us
+    public function aboutUs(){
+        $data['title'] = 'About Us | Zero1infinity Innovations A Software Solution Company';
+        $data['pageTitle'] = 'About Zero1Infinity';
+        $data['services'] = $this->services->getService();
+        return view('Frontend.about-us', $data);
+    }
+
     // service Details
     public function serviceDetails($serviceName){
         $serviceName = explode('-', $serviceName);

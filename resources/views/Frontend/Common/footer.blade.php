@@ -10,12 +10,15 @@
             <div class="col-md-4">
                 <h5>IT Services</h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Website Development</a></li>
-                    <li><a href="">Software Development</a></li>
-                    <li><a href="">Mobile App Development</a></li>
-                    <li><a href="">Digital Marketing</a></li>
-                    <li><a href="">Graphics Designing</a></li>
-                    <li><a href="">SEO</a></li>
+                    @if (!empty($services))
+                        @foreach ($services as $service)
+                            @php
+                                $serviceLink = explode(" ", $service->name);
+                                $serviceLink = strtolower(implode('-', $serviceLink));
+                            @endphp
+                            <li><a href="{{ route('serviceDetails', ['serviceName' => $serviceLink]) }}">{{ $service->name }}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
             <div class="col-md-2">

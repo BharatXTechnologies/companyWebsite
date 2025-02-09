@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Home::class,'index'])->name('index');
+Route::get('/about-zero1infinity', [Home::class, 'aboutUs'])->name('aboutUs');
 Route::get('/service/{serviceName}', [Home::class, 'serviceDetails'])->name('serviceDetails');
 
 

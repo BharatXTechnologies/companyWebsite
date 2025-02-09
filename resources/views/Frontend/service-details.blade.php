@@ -3,11 +3,11 @@
     <div class="container-fluid service-breadcrumb"
         style="background-image: url({{ URL::asset('frontend/assets/images/services-banner/services-background.jpg') }})">
         <div class="breadcrumb-container wow fadeInDown animate__animated animate__fadeInDown">
-            <h2 class="fw-bold text-dark">{{ $service->name ? $service->name : '' }}</h2>
+            <h2 class="fw-bold text-dark">{{ $service->name ? ucwords($service->name) : '' }}</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb wow fadeInUp animate__animated animate__fadeInUp breadcrumb-list">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $service->name ? $service->name : '' }}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $service->name ? strtoupper($service->name) : '' }}</li>
                 </ol>
             </nav>
         </div>
@@ -42,7 +42,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-3">
                 @foreach ($features as $feature)
                     <div class="col-md-6 wow fadeInDown animate__animated @if($loop->iteration % 2 == 0) animate__fadeInRight @else animate__fadeInLeft @endif">
                         <div class="card mb-3">
