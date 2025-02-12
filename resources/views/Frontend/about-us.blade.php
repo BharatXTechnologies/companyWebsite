@@ -13,11 +13,11 @@
             </nav>
         </div>
     </div>
-    <div class="container">
+    <div class="container about-container mb-5">
         <div class="row">
             <div class="col-md-12">
-                <h5 class="text-center about-text wow fadeInDown animate__animated animate__fadeInRight">ZERO1INFINITY
-                    INNOVATIONS</h5>
+                <h5 class="text-center text-muted about-text wow fadeInDown animate__animated animate__fadeInRight">
+                    ZERO1INFINITY INNOVATIONS</h5>
             </div>
         </div>
         <div class="row">
@@ -40,19 +40,15 @@
                         <h2 class="accordion-header" id="headingOne">
                             <button data-mdb-collapse-init class="accordion-button" type="button"
                                 data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Accordion Item #1
+                                How can we help your business?
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-mdb-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and
-                                hiding via CSS transitions. You can modify any of this with custom CSS or
-                                overriding our default variables. It's also worth noting that just about any HTML
-                                can go within the <strong>.accordion-body</strong>, though the transition does
-                                limit overflow.
+                                <p>Through our innovative team and technology expert team, we can put your business online
+                                    and can help you to reach more customers to grow your business, we know how to use
+                                    technology to change people's life.</p>
                             </div>
                         </div>
                     </div>
@@ -60,19 +56,15 @@
                         <h2 class="accordion-header" id="headingTwo">
                             <button data-mdb-collapse-init class="accordion-button collapsed" type="button"
                                 data-mdb-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Accordion Item #2
+                                What are the advantages of Zero1infinity?
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-mdb-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by
-                                default, until the collapse plugin adds the appropriate classes that we use to
-                                style each element. These classes control the overall appearance, as well as the
-                                showing and hiding via CSS transitions. You can modify any of this with custom CSS
-                                or overriding our default variables. It's also worth noting that just about any
-                                HTML can go within the <strong>.accordion-body</strong>, though the transition
-                                does limit overflow.
+                                <p>We have the young and energetic developers and designers with most innovative ideas to
+                                    implement your idea into reality, We at <strong>Z1I</strong>, belieave in that client
+                                    satisfaction is the key to success, we provide 24x7 technical support.</p>
                             </div>
                         </div>
                     </div>
@@ -80,21 +72,75 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button data-mdb-collapse-init class="accordion-button collapsed" type="button"
                                 data-mdb-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
+                                How working process is simplified?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-mdb-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and
-                                hiding via CSS transitions. You can modify any of this with custom CSS or
-                                overriding our default variables. It's also worth noting that just about any HTML
-                                can go within the <strong>.accordion-body</strong>, though the transition does
-                                limit overflow.
+                                <p>We have experienced devlopers to help you in the implementing your idea, We analyse,
+                                    design, develop, test and deploy your requirement.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 claim-container">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="text-center about-us wow fadeInDown animate__animated animate__fadeInLeft">How We Claim To <span class="text-warning">Best?</span></h2>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInLeft">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/about-team.png') }}" class="card-img-top" alt="Innovative Teams"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Innovative Teams</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInUp">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/client-feedback.png') }}" class="card-img-top" alt="Client Satisfaction"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Client Satisfaction</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInRight">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/on-time.png') }}" class="card-img-top" alt="Quick Delivery"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Quick Delivery</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInLeft">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/affordable.png') }}" class="card-img-top" alt="Affordable Price"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Affordable Price</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInDown">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/increase.png') }}" class="card-img-top" alt="Less budget more features"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Less budget more features</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInRight">
+                <div class="card about-card">
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/24-hours-support.png') }}" class="card-img-top" alt="24*7 Support"/>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">24/7 Support</h5>
                     </div>
                 </div>
             </div>
