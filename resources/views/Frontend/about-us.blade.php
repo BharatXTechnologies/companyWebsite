@@ -90,13 +90,15 @@
     <div class="container mb-5 claim-container">
         <div class="row mb-4">
             <div class="col-md-12">
-                <h2 class="text-center about-us wow fadeInDown animate__animated animate__fadeInLeft">How We Claim To <span class="text-warning">Best?</span></h2>
+                <h2 class="text-center about-us wow fadeInDown animate__animated animate__fadeInLeft">How We Claim To <span
+                        class="text-warning">Best?</span></h2>
             </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInLeft">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/about-team.png') }}" class="card-img-top" alt="Innovative Teams"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/about-team.png') }}" class="card-img-top"
+                        alt="Innovative Teams" />
                     <div class="card-body">
                         <h5 class="card-title text-center">Innovative Teams</h5>
                     </div>
@@ -104,7 +106,8 @@
             </div>
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInUp">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/client-feedback.png') }}" class="card-img-top" alt="Client Satisfaction"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/client-feedback.png') }}"
+                        class="card-img-top" alt="Client Satisfaction" />
                     <div class="card-body">
                         <h5 class="card-title text-center">Client Satisfaction</h5>
                     </div>
@@ -112,7 +115,8 @@
             </div>
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInRight">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/on-time.png') }}" class="card-img-top" alt="Quick Delivery"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/on-time.png') }}" class="card-img-top"
+                        alt="Quick Delivery" />
                     <div class="card-body">
                         <h5 class="card-title text-center">Quick Delivery</h5>
                     </div>
@@ -122,7 +126,8 @@
         <div class="row mt-4">
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInLeft">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/affordable.png') }}" class="card-img-top" alt="Affordable Price"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/affordable.png') }}" class="card-img-top"
+                        alt="Affordable Price" />
                     <div class="card-body">
                         <h5 class="card-title text-center">Affordable Price</h5>
                     </div>
@@ -130,7 +135,8 @@
             </div>
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInDown">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/increase.png') }}" class="card-img-top" alt="Less budget more features"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/increase.png') }}" class="card-img-top"
+                        alt="Less budget more features" />
                     <div class="card-body">
                         <h5 class="card-title text-center">Less budget more features</h5>
                     </div>
@@ -138,11 +144,81 @@
             </div>
             <div class="col-md-4 mb-4 wow fadeInDown animate__animated animate__fadeInRight">
                 <div class="card about-card">
-                    <img src="{{ URL::asset('frontend/assets/images/about-images/24-hours-support.png') }}" class="card-img-top" alt="24*7 Support"/>
+                    <img src="{{ URL::asset('frontend/assets/images/about-images/24-hours-support.png') }}"
+                        class="card-img-top" alt="24*7 Support" />
                     <div class="card-body">
                         <h5 class="card-title text-center">24/7 Support</h5>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-5 form-container">
+        <div class="row mb-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <h1 class="form-header">Need a hand?</h1>
+                <p class="form-para mb-5">Reach out to the most reliable IT services.</p>
+                <form action="" method="post">
+                    @csrf
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" id="query-name"
+                                    name="name" placeholder="Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-lg" id="query-email"
+                                    name="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="tel" class="form-control form-control-lg" id="query-phone"
+                                    name="phone" placeholder="Mobile Numnber" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-select form-control-lg" id="query-service" name="service" required>
+                                    <option selected>Your Enquiry For</option>
+                                    @if (!empty($services))
+                                        @foreach ($services as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    @endif
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Get a free consultation">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 contact-about-info"
+                style="background-image: url({{ URL::asset('frontend/assets/images/common-image/contact-bg-image.png') }});">
+                <h2>REACH OUT NOW!</h2>
+                <p class="phone-number">(+91) 8726904066<br/> 8650163913</p>
+                <p>Start the collaboration with us while figuring out the best solution based on your needs.</p>
             </div>
         </div>
     </div>

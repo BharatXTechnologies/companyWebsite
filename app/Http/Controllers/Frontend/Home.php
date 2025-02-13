@@ -31,7 +31,7 @@ class Home extends Controller
 
     // about us
     public function aboutUs(){
-        $data['title'] = 'About Us | Zero1infinity Innovations A Software Solution Company';
+        $data['title'] = 'About Zero1Infinity | Zero1infinity Innovations A Software Solution Company';
         $data['pageTitle'] = 'About Zero1Infinity';
         $data['services'] = $this->services->getService();
         return view('Frontend.about-us', $data);
