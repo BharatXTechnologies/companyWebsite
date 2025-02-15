@@ -25,7 +25,7 @@ class Home extends Controller
         $data['title'] = 'Home | Zero1infinity Innovations A Software Solution Company';
         $data['category'] = $this->category->getCategory();
         $data['projects'] = $this->projects->getProjects();
-        $data['services'] = $this->services->getService();
+        $data['services'] = $this->services->getActiveServices();
         return view('Frontend.index', $data);
     }
 
@@ -33,7 +33,7 @@ class Home extends Controller
     public function aboutUs(){
         $data['title'] = 'About Zero1Infinity | Zero1infinity Innovations A Software Solution Company';
         $data['pageTitle'] = 'About Zero1Infinity';
-        $data['services'] = $this->services->getService();
+        $data['services'] = $this->services->getActiveServices();
         return view('Frontend.about-us', $data);
     }
 
@@ -41,7 +41,7 @@ class Home extends Controller
     public function serviceDetails($serviceName){
         $serviceName = explode('-', $serviceName);
         $serviceName = implode(' ', $serviceName);
-        $data['services'] = $this->services->getService();
+        $data['services'] = $this->services->getActiveServices();
         $data['service'] = $this->services->getServiceByName($serviceName);
         $data['features'] = $this->features->getFeatureById($data['service']->feature_ids);
         $data['title'] = $data['service']->name . ' | Zero1infinity Innovations A Software Solution Company';

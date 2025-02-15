@@ -65,6 +65,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/services', [serviceController::class, 'services'])->name('services')->middleware('isAdminLogin');
     Route::get('/add-service', [serviceController::class, 'addService'])->name('addService')->middleware('isAdminLogin');
     Route::post('/store-service', [serviceController::class, 'storeService'])->name('storeService')->middleware('isAdminLogin');
+    Route::get('/edit-service/{id}', [serviceController::class, 'addService'])->name('editService')->middleware('isAdminLogin');
+    Route::post('/update-service/{id}', [serviceController::class, 'storeService'])->name('updateService')->middleware('isAdminLogin');
+    Route::get('/update-status/{id}', [serviceController::class, 'changeServiceStatus'])->name('serviceStatus')->middleware('isAdminLogin');
+    Route::get('/delete-service/{id}', [serviceController::class, 'deleteService'])->name('deleteService')->middleware('isAdminLogin');
 
     // Website setting
     Route::get('/mediaSetting', [Admin::class, 'mediaSetting'])->name('mediaSetting')->middleware('isAdminLogin');

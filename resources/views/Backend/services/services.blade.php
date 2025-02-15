@@ -32,7 +32,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php
+                                    $sn = 1;
+                                @endphp
+                                @foreach ($servicesData as $serviceItem)
+                                    <tr>
+                                        <td>{{ $sn++; }}</td>
+                                        <td> {{ $serviceItem->name }} </td>
+                                        <td> <i class="fas {{ $serviceItem->icon }}"></i> </td>
+                                        <td>{{ substr($serviceItem->small_desc, 0, 20) }}...</td>
+                                        <td>{{ $serviceItem->feature_ids }}</td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn btn-sm toggle-status-btn {{ $serviceItem->status == 1 ? 'btn-success' : 'btn-danger' }}" data-url="{{ route('admin.serviceStatus', $serviceItem->id) }}">{{ $serviceItem->status == 1 ? 'Active' : 'Inactive' }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.editService', $serviceItem->id) }}" class="btn btn-success btn-sm">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn btn-danger btn-sm delete-btn" data-url="{{ route('admin.deleteService', $serviceItem->id) }}">
+                                                <i class="bi bi-trash3"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

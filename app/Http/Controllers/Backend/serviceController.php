@@ -24,7 +24,7 @@ class serviceController extends Controller
             'url' => route('admin.services')
         ];
         $data['title'] = "Service List";
-        // $data['servicesData'] = $this->services->getService();
+        $data['servicesData'] = $this->services->getService();
         return view('Backend.services.services', $data);
     }
 
@@ -124,6 +124,20 @@ class serviceController extends Controller
             return redirect()->route('admin.services')->with('success', 'Service added successfully.');
         }else{
             return redirect()->back()->with('error', 'Failed to add service.')->withInput();
+        }
+    }
+
+    // change service status
+    public function changeServiceStatus($id){
+        if(is_null($id)) {
+            return redirect()->route('admin.services')->with('error', 'Service ID does not exist.');
+        }
+        $service = $this->services->find($id);
+        $service->status =!$service->status;
+        if($service->save()){
+            return redirect()->route('admin.services')->with('success', 'Service status changed successfully.');
+        } else {
+            return redirect()->route('admin.services')->with('error', 'Failed to change service status.');
         }
     }
 }

@@ -27,6 +27,7 @@
 
     {{-- Datatable CSS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/font-awesome/css/all.css') }}"/>
 
     {{-- Select Library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.default.min.css" />

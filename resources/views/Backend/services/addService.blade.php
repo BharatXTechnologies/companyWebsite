@@ -20,6 +20,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form id="serviceFrom" action="{{ route('admin.storeService') }}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row mb-2">
                                     <div class="col-md-6 mb-2">
                                         <div class="form-group">

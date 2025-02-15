@@ -105,11 +105,33 @@
         </div>
         <div class="row text-center">
             <!-- Card 1 -->
-            <div class="col-md-4 mb-4 wow animate__animated animate__fadeIn" data-wow-delay="0.2s">
+            @if ($services)
+                @foreach ($services as $serviceItem)
+                    @php
+                        $serviceLink = explode(" ", $serviceItem->name);
+                        $serviceLink = strtolower(implode('-', $serviceLink));
+                    @endphp
+                    <div class="col-md-4 mb-4 wow animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="icon-box mb-3">
+                                    <i class="fas {{ $serviceItem->icon }}"></i>
+                                </div>
+                                <h5 class="card-title">{{ $serviceItem->name }}</h5>
+                                <p class="card-text">{{ $serviceItem->small_desc }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="{{ route('serviceDetails', ['serviceName' => $serviceLink]) }}" class="discover-btn">Discover now →</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+            {{-- <div class="col-md-4 mb-4 wow animate__animated animate__fadeIn" data-wow-delay="0.2s">
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="icon-box mb-3">
-                            <i class="fa-solid fa-laptop-code"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
                         <h5 class="card-title">Software Development</h5>
                         <p class="card-text">We provide custom software development for your business, billing, inventory,
@@ -204,7 +226,7 @@
                         <a href="#" class="discover-btn">Discover now →</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="container py-5 mb-5 wow animate__animated animate__fadeInUp" data-wow-duration="1.2s">
@@ -265,7 +287,8 @@
     {{-- project section --}}
     @if (!empty($projects))
         <div class="container py-5 wow animate__animated animate__fadeInUp" data-wow-duration="1s">
-            <h2 class="text-center font-weight-bold mb-4 wow animate__animated animate__fadeInLeft">A Glimpse of <span class="text-primary">Our Works</span></h2>
+            <h2 class="text-center font-weight-bold mb-4 wow animate__animated animate__fadeInLeft">A Glimpse of <span
+                    class="text-primary">Our Works</span></h2>
 
             <!-- Tabs for Categories -->
             <ul class="nav nav-pills mb-4 justify-content-center">
@@ -275,7 +298,8 @@
                     </li>
                     @foreach ($category as $category_item)
                         <li class="nav-item wow animate__animated animate__fadeInUp">
-                            <a class="nav-link" data-filter="{{ $category_item->name }}">{{ ucwords($category_item->name) }}</a>
+                            <a class="nav-link"
+                                data-filter="{{ $category_item->name }}">{{ ucwords($category_item->name) }}</a>
                         </li>
                     @endforeach
                 @endif
@@ -284,9 +308,11 @@
             <!-- Project Gallery -->
             <div class="row">
                 @foreach ($projects as $project)
-                    <div class="col-md-4 mb-4 project-card {{ $project->category->name }} wow animate__animated animate__fadeInLeft">
+                    <div
+                        class="col-md-4 mb-4 project-card {{ $project->category->name }} wow animate__animated animate__fadeInLeft">
                         <div class="project-item">
-                            <img src="{{ URL::asset('assets/uploads/projects/'. $project->thumbnail ) }}" class="img-fluid" alt="{{ $project->project_name }}">
+                            <img src="{{ URL::asset('assets/uploads/projects/' . $project->thumbnail) }}"
+                                class="img-fluid" alt="{{ $project->project_name }}">
                             <div class="overlay">
                                 <a href="#" class="project-name">{{ ucwords($project->project_name) }}</a>
                             </div>

@@ -22,14 +22,14 @@
             <div class="col-md-4  wow fadeInDown animate__animated animate__fadeInRight">
                 <h2 class="service-header">Other Services</h2>
                 <ul class="service-list">
-                    @foreach ($services as $service)
+                    @foreach ($services as $serviceItem)
                         @php
-                            $serviceLink = explode(' ', $service->name);
+                            $serviceLink = explode(' ', $serviceItem->name);
                             $serviceLink = strtolower(implode('-', $serviceLink));
                         @endphp
                         <li class="service-list-item">
                             <i class="bi bi-check-lg me-2"></i> <a
-                                href="{{ route('serviceDetails', ['serviceName' => $serviceLink]) }}">{{ $service->name }}</a>
+                                href="{{ route('serviceDetails', ['serviceName' => $serviceLink]) }}">{{ $serviceItem->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -38,8 +38,11 @@
         @if (!empty($features))
             <div class="row">
                 <div class="col-md-12 wow fadeInDown animate__animated animate__fadeInLeft">
-                    <h2 class="text-center">Features That We Provide In <span class="text-warning">Web Development</span>
-                    </h2>
+                    @if (strtolower($service->name) == 'software development')
+                        <h2 class="text-center">Which Types Of <span class="text-warning">Softwares</span> We Provide? </h2>
+                    @else
+                        <h2 class="text-center">Features That We Provide In <span class="text-warning">{{ ucwords($service->name) }}</span></h2>
+                    @endif
                 </div>
             </div>
             <div class="row mb-3">

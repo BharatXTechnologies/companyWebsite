@@ -24,4 +24,8 @@ class service extends Model
         return service::where('name', $serviceName)->first();
     }
 
+    function getActiveServices(){
+        return service::where('status', 1)->get();
+    }
+
 }
